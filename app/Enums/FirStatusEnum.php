@@ -48,8 +48,6 @@ enum FirStatusEnum: string implements HasColor, HasIcon, HasLabel
         return in_array($to, $this->allowedTransitions(), true);
     }
 
-<<<<<<< HEAD
-=======
     /**
      * Stato raggiungibile con uno o più passaggi consentiti (es. `issued` → `accepted` passando da
      * `in_transit` e `delivered`, come fa RecordFirAcceptanceAction in un solo salvataggio).
@@ -73,7 +71,6 @@ enum FirStatusEnum: string implements HasColor, HasIcon, HasLabel
         return false;
     }
 
->>>>>>> laraxot/dev
     public function isFinal(): bool
     {
         return $this->allowedTransitions() === [];

@@ -4,11 +4,8 @@ declare(strict_types=1);
 
 namespace Modules\Waste\Models;
 
-<<<<<<< HEAD
-=======
 use Carbon\CarbonInterface;
 use Illuminate\Database\Eloquent\Builder;
->>>>>>> laraxot/dev
 use Illuminate\Database\Eloquent\Casts\AsEnumCollection;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -20,13 +17,10 @@ use Modules\Waste\Enums\WasteOperationEnum;
  * Codice EER autorizzato in un titolo, con le operazioni R/D ammesse e i limiti quantitativi
  * (`max_storage_kg` istantaneo, `max_annual_kg` annuo), entrambi opzionali.
  *
-<<<<<<< HEAD
-=======
  * Un codice autorizzato vale solo se il suo titolo è valido alla data dell'operazione (attivo, già
  * rilasciato, non scaduto): `isValidOn()` / scope `validOn()`. Con più titoli per lo stesso EER (rinnovo)
  * i limiti NON si sommano: vale il titolo valido più recente (FindAuthorizedWasteAction).
  *
->>>>>>> laraxot/dev
  * @property int $id
  * @property int $plant_authorization_id
  * @property int $ewc_code_id
@@ -83,8 +77,6 @@ class AuthorizedWaste extends BaseModel
         return $this->operations->contains(static fn (WasteOperationEnum $item): bool => $item === $operation);
     }
 
-<<<<<<< HEAD
-=======
     /** Il titolo di appartenenza è valido alla data indicata (PlantAuthorization::isValidOn). */
     public function isValidOn(CarbonInterface $date): bool
     {
@@ -105,7 +97,6 @@ class AuthorizedWaste extends BaseModel
         });
     }
 
->>>>>>> laraxot/dev
     public function maxStorageKg(): ?float
     {
         return $this->max_storage_kg === null ? null : (float) $this->max_storage_kg;

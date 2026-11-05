@@ -88,8 +88,6 @@ describe('FindAuthorizedWasteAction', function (): void {
     });
 });
 
-<<<<<<< HEAD
-=======
 describe('FindAuthorizedWasteAction alla data dell\'operazione', function (): void {
     test('ignores a permit that was expired on the operation date', function (): void {
         [$plant, $ewc] = authorizedPlant(PlantAuthorization::factory()->createOne([
@@ -148,7 +146,6 @@ describe('FindAuthorizedWasteAction alla data dell\'operazione', function (): vo
     });
 });
 
->>>>>>> laraxot/dev
 describe('GetAuthorizedQuantityUsageAction', function (): void {
     test('computes instantaneous and annual usage from the loads of the year', function (): void {
         [$plant, $ewc, $authorized] = authorizedPlant();

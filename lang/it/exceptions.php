@@ -41,14 +41,11 @@ return [
         'rectification_type_mismatch' => 'La rettifica deve avere lo stesso tipo (carico/scarico) della scrittura originale.',
         'rectification_reason_missing' => 'Indicare il motivo della rettifica.',
     ],
-<<<<<<< HEAD
-=======
     'immutable_fir' => [
         'fields' => 'Il formulario :fir è già emesso: non si possono modificare :fields. Dopo la bozza cambiano solo stato, date di viaggio, accettazione e numero RENTRI.',
         'status' => 'Il formulario :fir non può passare dallo stato :from allo stato :to.',
         'deletion' => 'Il formulario :fir è già emesso e non si può eliminare: va annullato.',
     ],
->>>>>>> laraxot/dev
     'immutable_register_entry' => [
         'transmitted' => 'La scrittura :year/:number è stata trasmessa a RENTRI e non può essere modificata: annotare una rettifica.',
         'numbering' => 'Registro, anno, numero e data di annotazione della scrittura :year/:number non possono essere modificati.',

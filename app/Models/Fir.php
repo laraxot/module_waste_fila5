@@ -16,10 +16,7 @@ use Modules\Waste\Enums\HazardPropertyEnum;
 use Modules\Waste\Enums\PhysicalStateEnum;
 use Modules\Waste\Enums\QuantityUnitEnum;
 use Modules\Waste\Enums\WasteOperationEnum;
-<<<<<<< HEAD
-=======
 use Modules\Waste\Exceptions\ImmutableFirException;
->>>>>>> laraxot/dev
 
 /**
  * Formulario di identificazione del rifiuto (art. 193 D.Lgs. 152/2006), cartaceo o digitale (xFIR RENTRI).
@@ -27,8 +24,6 @@ use Modules\Waste\Exceptions\ImmutableFirException;
  * Si crea con CreateFirAction; stato e accettazione cambiano solo tramite ChangeFirStatusAction e
  * RecordFirAcceptanceAction. L'emissione digitale su RENTRI è del modulo Rentri.
  *
-<<<<<<< HEAD
-=======
  * Immutabilità (guardia di modello, vale anche per il super-admin che salta le policy): finché il FIR è
  * in `draft` si modifica liberamente; dopo cambiano solo i campi di POST_DRAFT_MUTABLE, con queste regole:
  * - `status` solo verso uno stato raggiungibile (FirStatusEnum::canReach);
@@ -37,7 +32,6 @@ use Modules\Waste\Exceptions\ImmutableFirException;
  * - `number` solo se non era ancora assegnato (numero RENTRI), `is_digital` solo da false a true.
  * Un FIR emesso non si elimina: si annulla. Gli update di massa via query builder non passano di qui.
  *
->>>>>>> laraxot/dev
  * @property int $id
  * @property string|null $number
  * @property bool $is_digital
@@ -81,8 +75,6 @@ use Modules\Waste\Exceptions\ImmutableFirException;
  */
 class Fir extends BaseModel
 {
-<<<<<<< HEAD
-=======
     /**
      * Colonne che possono cambiare dopo la bozza (con le regole di booted()).
      *
@@ -107,7 +99,6 @@ class Fir extends BaseModel
     /** @var list<string> */
     private const array TRAVEL_COLUMNS = ['transport_started_at', 'arrived_at'];
 
->>>>>>> laraxot/dev
     /** @var list<string> */
     protected $fillable = [
         'number',
@@ -218,8 +209,6 @@ class Fir extends BaseModel
         return $this->number ?? '#'.$this->id;
     }
 
-<<<<<<< HEAD
-=======
     /** Lo stato salvato prima della modifica in corso (null se il valore grezzo non è uno stato noto). */
     public function originalStatus(): ?FirStatusEnum
     {
@@ -282,7 +271,6 @@ class Fir extends BaseModel
         }
     }
 
->>>>>>> laraxot/dev
     /**
      * @return array<string, string>
      */
