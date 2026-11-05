@@ -48,6 +48,25 @@ Le FK sono colonne indicizzate senza vincolo (moduli su connessioni diverse). Qu
   una scrittura si rettifica una sola volta (si può rettificare la rettifica). Le scritture sostituite sono escluse dai
   conteggi e non possono essere carichi di riferimento.
 
+### Immutabilità del FIR dopo la bozza
+
+Guardia nel modello (`Fir::booted()`, eccezione `ImmutableFirException`): vale per chiunque, anche per il
+super-admin che salta le policy (audit sicurezza M3). Finché il FIR è `draft` si modifica liberamente; dopo:
+
+| Campo | Quando può cambiare |
+|---|---|
+| `status` | verso uno stato raggiungibile (`FirStatusEnum::canReach`, anche più passaggi in un salvataggio) |
+| `acceptance`, `accepted_quantity_kg`, `rejection_reason` | solo nel salvataggio che porta a un esito di accettazione |
+| `transport_started_at`, `arrived_at` | se erano vuoti, oppure insieme a un cambio di stato |
+| `number` | solo se non era assegnato (numero restituito da RENTRI o del cartaceo) |
+| `is_digital` | solo da `false` a `true` |
+| tutto il resto (soggetti, EER, quantità, trasporto, note...) | mai |
+
+Un FIR emesso non si elimina (si annulla). `FirResource::canEdit()` nasconde la modifica dopo la bozza anche al
+super-admin. Le Actions `ChangeFirStatusAction`, `RecordFirAcceptanceAction` e l'esito RENTRI
+(`ApplyRentriTransmissionOutcomeAction` del modulo Rentri: numero e `is_digital`) restano consentiti.
+Gli update di massa via query builder non passano dagli eventi Eloquent.
+
 ### Regole di validità di una scrittura (`ValidateRegisterEntryDataAction`)
 
 quantità > 0; causale compatibile con il tipo (`RegisterCauseEnum::allowsType`); codice EER attivo; coerenza HP:
@@ -136,4 +155,7 @@ passata a `GetAuthorizedQuantityUsageAction`.
 `tests/Unit`: formato e validazione del codice EER, regole degli enum (operazioni R/D, HP, transizioni FIR, causali).
 `tests/Feature`: numerazione progressiva e cambio anno, numerazione concorrente con processi reali (`pcntl_fork`),
 validazioni, immutabilità dopo la trasmissione, rettifica, `FindAuthorizedWasteAction` (scadenza, operazione non
-autorizzata, titolo inattivo), utilizzo dell'autorizzazione annuo/istantaneo, FIR, import CSV.
+autorizzata, titolo inattivo), utilizzo dell'autorizzazione annuo/istantaneo, FIR, import CSV, immutabilità
+del FIR dopo la bozza (`FirImmutabilityTest`).
+
+Storie: [`docs/stories/`](stories/).
