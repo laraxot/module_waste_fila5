@@ -75,10 +75,6 @@ codice pericoloso ⇒ almeno una HP, codice non pericoloso ⇒ nessuna HP; opera
 data operazione non futura (tolleranza 5 minuti); carico senza `load_entry_ids`; scarico con almeno un carico dello
 stesso registro, stesso codice EER, non rettificato; FIR (se indicato) non annullato e con lo stesso codice EER.
 
-<<<<<<< .merge_file_5NzDIc
-<<<<<<< HEAD
-=======
-=======
 ### Titoli autorizzativi validi alla data dell'operazione
 
 Un codice autorizzato (`AuthorizedWaste`) vale solo se il suo titolo è valido **alla data dell'operazione**:
@@ -91,12 +87,10 @@ rilasciato per ultimo (`issued_at`, poi `id`). Chi calcola utilizzi o percentual
 e riepilogo giacenze per EER) deve filtrare con `AuthorizedWaste::validOn($data)` e prendere un solo codice per EER,
 non la somma di `max_storage_kg`.
 
->>>>>>> .merge_file_iEWe8t
 ### Soggetti e area clienti
 
 `operators.tenant_id` collega un soggetto a un cliente (tenant del modulo User, `XotData::getTenantClass()`). È l'unica fonte del legame: cantieri (`operator_sites`), FIR (`producer_operator_id`) e conferimenti di Roosko sono del cliente attraverso il soggetto, senza `tenant_id` ripetuti. Relazione `Operator::tenant()`, scope `Operator::ofTenant($tenant)`, campo *Cliente* nel form del soggetto. Story: `Modules/Roosko/docs/stories/01.area-cliente-cantieri.story.md`.
 
->>>>>>> laraxot/dev
 ## Enum (valori fissati)
 
 `HazardPropertyEnum` (HP1…HP15), `WasteOperationEnum` (R1…R13, D1…D15; `isRecovery()`, `isDisposal()`,

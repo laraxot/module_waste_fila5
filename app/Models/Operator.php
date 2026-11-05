@@ -6,20 +6,14 @@ namespace Modules\Waste\Models;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\AsEnumCollection;
-<<<<<<< HEAD
-=======
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
->>>>>>> laraxot/dev
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Collection;
 use Modules\Waste\Enums\OperatorRoleEnum;
-<<<<<<< HEAD
-=======
 use Modules\Xot\Datas\XotData;
->>>>>>> laraxot/dev
 
 /**
  * Soggetto della filiera rifiuti (produttore, trasportatore, destinatario, …), identificato dal codice fiscale.
@@ -35,10 +29,7 @@ use Modules\Xot\Datas\XotData;
  * @property string|null $pec
  * @property string|null $phone
  * @property bool $is_active
-<<<<<<< HEAD
-=======
  * @property string|null $tenant_id cliente dell'area clienti
->>>>>>> laraxot/dev
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * @property Carbon|null $deleted_at
@@ -63,10 +54,7 @@ class Operator extends BaseModel
         'pec',
         'phone',
         'is_active',
-<<<<<<< HEAD
-=======
         'tenant_id',
->>>>>>> laraxot/dev
     ];
 
     /** @var array<string, mixed> */
@@ -76,8 +64,6 @@ class Operator extends BaseModel
     ];
 
     /**
-<<<<<<< HEAD
-=======
      * Cliente dell'area clienti: gli utenti di quel tenant vedono i cantieri, i FIR e i
      * conferimenti di questo soggetto. Unica fonte del legame soggetto-cliente.
      *
@@ -101,7 +87,6 @@ class Operator extends BaseModel
     }
 
     /**
->>>>>>> laraxot/dev
      * @return HasMany<OperatorSite, $this>
      */
     public function sites(): HasMany
