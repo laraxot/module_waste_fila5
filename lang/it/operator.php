@@ -28,6 +28,7 @@ return [
         'phone' => ['label' => 'Telefono'],
         'sites_count' => ['label' => 'Unità locali'],
         'is_active' => ['label' => 'Attivo'],
+        'tenant_id' => ['label' => 'Cliente (area clienti)', 'helper_text' => 'Gli utenti di questo cliente vedono cantieri, FIR e conferimenti del soggetto'],
     ],
     'actions' => [
         'create' => ['label' => 'Nuovo soggetto'],

@@ -28,6 +28,7 @@ return [
         'phone' => ['label' => 'Phone'],
         'sites_count' => ['label' => 'Sites'],
         'is_active' => ['label' => 'Active'],
+        'tenant_id' => ['label' => 'Customer (customer area)', 'helper_text' => 'Users of this customer see the sites, FIRs and deliveries of this operator'],
     ],
     'actions' => [
         'create' => ['label' => 'New operator'],
