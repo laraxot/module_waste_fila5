@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace Modules\Waste\Filament\Resources;
 
 use Filament\Resources\RelationManagers\RelationManager;
+use Illuminate\Database\Eloquent\Model;
+use Modules\Waste\Enums\FirStatusEnum;
 use Modules\Waste\Filament\Resources\FirResource\Pages\CreateFir;
 use Modules\Waste\Filament\Resources\FirResource\Pages\EditFir;
 use Modules\Waste\Filament\Resources\FirResource\Pages\ListFirs;
@@ -12,9 +14,22 @@ use Modules\Waste\Filament\Resources\FirResource\Pages\ViewFir;
 use Modules\Waste\Models\Fir;
 use Modules\Xot\Filament\Resources\XotBaseResource;
 
+/**
+ * Un FIR si modifica a mano solo in bozza, anche per il super-admin (che salta le policy):
+ * la pagina di modifica e il bottone "modifica" spariscono dopo l'emissione. La stessa regola è
+ * garantita dal modello (Fir::booted()).
+ */
 class FirResource extends XotBaseResource
 {
     protected static ?string $model = Fir::class;
+
+    #[\Override]
+    public static function canEdit(Model $record): bool
+    {
+        return $record instanceof Fir
+            && $record->status === FirStatusEnum::DRAFT
+            && parent::canEdit($record);
+    }
 
     /**
      * @return array<string, class-string<RelationManager>>
