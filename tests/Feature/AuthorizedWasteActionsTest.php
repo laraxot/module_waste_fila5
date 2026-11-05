@@ -88,6 +88,67 @@ describe('FindAuthorizedWasteAction', function (): void {
     });
 });
 
+<<<<<<< HEAD
+=======
+describe('FindAuthorizedWasteAction alla data dell\'operazione', function (): void {
+    test('ignores a permit that was expired on the operation date', function (): void {
+        [$plant, $ewc] = authorizedPlant(PlantAuthorization::factory()->createOne([
+            'issued_at' => CarbonImmutable::today()->subYears(2)->toDateString(),
+            'expires_at' => CarbonImmutable::today()->subMonth()->toDateString(),
+        ]));
+
+        Assert::assertNotNull(app(FindAuthorizedWasteAction::class)->execute($plant, $ewc, WasteOperationEnum::R13, CarbonImmutable::today()->subMonths(2)));
+        Assert::assertNull(app(FindAuthorizedWasteAction::class)->execute($plant, $ewc, WasteOperationEnum::R13, CarbonImmutable::today()));
+    });
+
+    test('ignores a permit not yet issued on the operation date', function (): void {
+        [$plant, $ewc] = authorizedPlant(PlantAuthorization::factory()->createOne([
+            'issued_at' => CarbonImmutable::today()->subDays(10)->toDateString(),
+        ]));
+
+        Assert::assertNull(app(FindAuthorizedWasteAction::class)->execute($plant, $ewc, WasteOperationEnum::R13, CarbonImmutable::today()->subDays(11)));
+        Assert::assertNotNull(app(FindAuthorizedWasteAction::class)->execute($plant, $ewc, WasteOperationEnum::R13, CarbonImmutable::today()->subDays(10)));
+    });
+
+    test('ignores an inactive permit whatever the date', function (): void {
+        [$plant, $ewc] = authorizedPlant(PlantAuthorizationFactory::new()->inactive()->createOne());
+
+        Assert::assertNull(app(FindAuthorizedWasteAction::class)->execute($plant, $ewc, WasteOperationEnum::R13, CarbonImmutable::today()->subMonth()));
+    });
+
+    test('with an old and a renewed permit for the same code the most recently issued wins', function (): void {
+        $renewed = PlantAuthorization::factory()->createOne(['issued_at' => CarbonImmutable::today()->subMonth()->toDateString()]);
+        [$plant, $ewc, $renewedCode] = authorizedPlant($renewed);
+        $old = PlantAuthorization::factory()->createOne([
+            'operator_site_id' => $plant->id,
+            'issued_at' => CarbonImmutable::today()->subYears(5)->toDateString(),
+        ]);
+        AuthorizedWasteFactory::new()->withOperations(WasteOperationEnum::R13)->createOne([
+            'plant_authorization_id' => $old->id,
+            'ewc_code_id' => $ewc->id,
+            'max_storage_kg' => 5000,
+        ]);
+
+        $found = app(FindAuthorizedWasteAction::class)->execute($plant, $ewc, WasteOperationEnum::R13);
+
+        Assert::assertInstanceOf(AuthorizedWaste::class, $found);
+        Assert::assertSame($renewedCode->id, $found->id);
+        Assert::assertSame(1000.0, $found->maxStorageKg());
+    });
+
+    test('the validOn scope keeps only codes of valid permits', function (): void {
+        [, $ewc, $valid] = authorizedPlant();
+        [, , $expired] = authorizedPlant(PlantAuthorizationFactory::new()->expired()->createOne());
+
+        $ids = AuthorizedWaste::query()->validOn(CarbonImmutable::today())->whereKey([$valid->id, $expired->id])->pluck('id')->all();
+
+        Assert::assertSame([$valid->id], $ids);
+        Assert::assertTrue($valid->isValidOn(CarbonImmutable::today()));
+        Assert::assertFalse($expired->isValidOn(CarbonImmutable::today()));
+    });
+});
+
+>>>>>>> laraxot/dev
 describe('GetAuthorizedQuantityUsageAction', function (): void {
     test('computes instantaneous and annual usage from the loads of the year', function (): void {
         [$plant, $ewc, $authorized] = authorizedPlant();

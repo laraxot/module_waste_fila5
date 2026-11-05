@@ -16,6 +16,10 @@ use Modules\Waste\Enums\HazardPropertyEnum;
 use Modules\Waste\Enums\PhysicalStateEnum;
 use Modules\Waste\Enums\QuantityUnitEnum;
 use Modules\Waste\Enums\WasteOperationEnum;
+<<<<<<< HEAD
+=======
+use Modules\Waste\Exceptions\ImmutableFirException;
+>>>>>>> laraxot/dev
 
 /**
  * Formulario di identificazione del rifiuto (art. 193 D.Lgs. 152/2006), cartaceo o digitale (xFIR RENTRI).
@@ -23,6 +27,17 @@ use Modules\Waste\Enums\WasteOperationEnum;
  * Si crea con CreateFirAction; stato e accettazione cambiano solo tramite ChangeFirStatusAction e
  * RecordFirAcceptanceAction. L'emissione digitale su RENTRI è del modulo Rentri.
  *
+<<<<<<< HEAD
+=======
+ * Immutabilità (guardia di modello, vale anche per il super-admin che salta le policy): finché il FIR è
+ * in `draft` si modifica liberamente; dopo cambiano solo i campi di POST_DRAFT_MUTABLE, con queste regole:
+ * - `status` solo verso uno stato raggiungibile (FirStatusEnum::canReach);
+ * - `acceptance`, `accepted_quantity_kg`, `rejection_reason` solo nel salvataggio che porta a un esito di accettazione;
+ * - `transport_started_at`, `arrived_at` se erano vuoti o insieme a un cambio di stato;
+ * - `number` solo se non era ancora assegnato (numero RENTRI), `is_digital` solo da false a true.
+ * Un FIR emesso non si elimina: si annulla. Gli update di massa via query builder non passano di qui.
+ *
+>>>>>>> laraxot/dev
  * @property int $id
  * @property string|null $number
  * @property bool $is_digital
@@ -66,6 +81,33 @@ use Modules\Waste\Enums\WasteOperationEnum;
  */
 class Fir extends BaseModel
 {
+<<<<<<< HEAD
+=======
+    /**
+     * Colonne che possono cambiare dopo la bozza (con le regole di booted()).
+     *
+     * @var list<string>
+     */
+    public const array POST_DRAFT_MUTABLE = [
+        'status',
+        'transport_started_at',
+        'arrived_at',
+        'acceptance',
+        'accepted_quantity_kg',
+        'rejection_reason',
+        'number',
+        'is_digital',
+        'updated_at',
+        'updated_by',
+    ];
+
+    /** @var list<string> */
+    private const array ACCEPTANCE_COLUMNS = ['acceptance', 'accepted_quantity_kg', 'rejection_reason'];
+
+    /** @var list<string> */
+    private const array TRAVEL_COLUMNS = ['transport_started_at', 'arrived_at'];
+
+>>>>>>> laraxot/dev
     /** @var list<string> */
     protected $fillable = [
         'number',
@@ -176,6 +218,71 @@ class Fir extends BaseModel
         return $this->number ?? '#'.$this->id;
     }
 
+<<<<<<< HEAD
+=======
+    /** Lo stato salvato prima della modifica in corso (null se il valore grezzo non è uno stato noto). */
+    public function originalStatus(): ?FirStatusEnum
+    {
+        $raw = $this->getRawOriginal('status');
+
+        return is_string($raw) ? FirStatusEnum::tryFrom($raw) : null;
+    }
+
+    protected static function booted(): void
+    {
+        static::updating(static function (Fir $fir): void {
+            $from = $fir->originalStatus();
+            if ($from === null || $from === FirStatusEnum::DRAFT) {
+                return;
+            }
+
+            $fir->assertPostDraftChangesAllowed($from);
+        });
+
+        static::deleting(static function (Fir $fir): void {
+            $status = $fir->originalStatus();
+            if ($status !== null && $status !== FirStatusEnum::DRAFT) {
+                throw ImmutableFirException::deletion($fir->displayNumber());
+            }
+        });
+    }
+
+    private function assertPostDraftChangesAllowed(FirStatusEnum $from): void
+    {
+        $dirty = array_keys($this->getDirty());
+        $statusChanged = in_array('status', $dirty, true);
+        $to = $this->status;
+
+        if ($statusChanged && ! $from->canReach($to)) {
+            throw ImmutableFirException::status($this->displayNumber(), $from->value, $to->value);
+        }
+
+        $denied = array_values(array_diff($dirty, self::POST_DRAFT_MUTABLE));
+
+        if (array_intersect($dirty, self::ACCEPTANCE_COLUMNS) !== [] && ! ($statusChanged && $to->isAcceptanceOutcome())) {
+            $denied = [...$denied, ...array_values(array_intersect($dirty, self::ACCEPTANCE_COLUMNS))];
+        }
+
+        foreach (self::TRAVEL_COLUMNS as $column) {
+            if (in_array($column, $dirty, true) && ! $statusChanged && $this->getRawOriginal($column) !== null) {
+                $denied[] = $column;
+            }
+        }
+
+        if (in_array('number', $dirty, true) && $this->getRawOriginal('number') !== null) {
+            $denied[] = 'number';
+        }
+
+        if (in_array('is_digital', $dirty, true) && ! $this->is_digital) {
+            $denied[] = 'is_digital';
+        }
+
+        if ($denied !== []) {
+            throw ImmutableFirException::fields($this->displayNumber(), array_values(array_unique($denied)));
+        }
+    }
+
+>>>>>>> laraxot/dev
     /**
      * @return array<string, string>
      */

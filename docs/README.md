@@ -48,6 +48,28 @@ Le FK sono colonne indicizzate senza vincolo (moduli su connessioni diverse). Qu
   una scrittura si rettifica una sola volta (si può rettificare la rettifica). Le scritture sostituite sono escluse dai
   conteggi e non possono essere carichi di riferimento.
 
+<<<<<<< HEAD
+=======
+### Immutabilità del FIR dopo la bozza
+
+Guardia nel modello (`Fir::booted()`, eccezione `ImmutableFirException`): vale per chiunque, anche per il
+super-admin che salta le policy (audit sicurezza M3). Finché il FIR è `draft` si modifica liberamente; dopo:
+
+| Campo | Quando può cambiare |
+|---|---|
+| `status` | verso uno stato raggiungibile (`FirStatusEnum::canReach`, anche più passaggi in un salvataggio) |
+| `acceptance`, `accepted_quantity_kg`, `rejection_reason` | solo nel salvataggio che porta a un esito di accettazione |
+| `transport_started_at`, `arrived_at` | se erano vuoti, oppure insieme a un cambio di stato |
+| `number` | solo se non era assegnato (numero restituito da RENTRI o del cartaceo) |
+| `is_digital` | solo da `false` a `true` |
+| tutto il resto (soggetti, EER, quantità, trasporto, note...) | mai |
+
+Un FIR emesso non si elimina (si annulla). `FirResource::canEdit()` nasconde la modifica dopo la bozza anche al
+super-admin. Le Actions `ChangeFirStatusAction`, `RecordFirAcceptanceAction` e l'esito RENTRI
+(`ApplyRentriTransmissionOutcomeAction` del modulo Rentri: numero e `is_digital`) restano consentiti.
+Gli update di massa via query builder non passano dagli eventi Eloquent.
+
+>>>>>>> laraxot/dev
 ### Regole di validità di una scrittura (`ValidateRegisterEntryDataAction`)
 
 quantità > 0; causale compatibile con il tipo (`RegisterCauseEnum::allowsType`); codice EER attivo; coerenza HP:
@@ -56,6 +78,25 @@ codice pericoloso ⇒ almeno una HP, codice non pericoloso ⇒ nessuna HP; opera
 data operazione non futura (tolleranza 5 minuti); carico senza `load_entry_ids`; scarico con almeno un carico dello
 stesso registro, stesso codice EER, non rettificato; FIR (se indicato) non annullato e con lo stesso codice EER.
 
+<<<<<<< HEAD
+=======
+### Titoli autorizzativi validi alla data dell'operazione
+
+Un codice autorizzato (`AuthorizedWaste`) vale solo se il suo titolo è valido **alla data dell'operazione**:
+attivo, già rilasciato, non scaduto (scadenza inclusa), non eliminato (`PlantAuthorization::isValidOn`/`scopeValidOn`,
+`AuthorizedWaste::isValidOn`/`scopeValidOn`). `FindAuthorizedWasteAction` riceve la data (`$on`, default oggi) e
+ignora i titoli non validi in quel giorno (audit database R11).
+
+Con più titoli sullo stesso EER (rinnovo, vecchio titolo ancora attivo) i limiti **non si sommano**: vale il titolo
+rilasciato per ultimo (`issued_at`, poi `id`). Chi calcola utilizzi o percentuali (in Roosko: guard di posizionamento
+e riepilogo giacenze per EER) deve filtrare con `AuthorizedWaste::validOn($data)` e prendere un solo codice per EER,
+non la somma di `max_storage_kg`.
+
+### Soggetti e area clienti
+
+`operators.tenant_id` collega un soggetto a un cliente (tenant del modulo User, `XotData::getTenantClass()`). È l'unica fonte del legame: cantieri (`operator_sites`), FIR (`producer_operator_id`) e conferimenti di Roosko sono del cliente attraverso il soggetto, senza `tenant_id` ripetuti. Relazione `Operator::tenant()`, scope `Operator::ofTenant($tenant)`, campo *Cliente* nel form del soggetto. Story: `Modules/Roosko/docs/stories/01.area-cliente-cantieri.story.md`.
+
+>>>>>>> laraxot/dev
 ## Enum (valori fissati)
 
 `HazardPropertyEnum` (HP1…HP15), `WasteOperationEnum` (R1…R13, D1…D15; `isRecovery()`, `isDisposal()`,
@@ -68,7 +109,11 @@ stesso registro, stesso codice EER, non rettificato; FIR (se indicato) non annul
 ```php
 PostRegisterEntryAction::execute(RegisterEntryData $data): RegisterEntry
 RectifyRegisterEntryAction::execute(RegisterEntry $entry, RegisterEntryData $corrected, string $reason): RegisterEntry
+<<<<<<< HEAD
 FindAuthorizedWasteAction::execute(OperatorSite $plant, EwcCode $ewc, WasteOperationEnum $operation): ?AuthorizedWaste
+=======
+FindAuthorizedWasteAction::execute(OperatorSite $plant, EwcCode $ewc, WasteOperationEnum $operation, ?CarbonInterface $on = null): ?AuthorizedWaste
+>>>>>>> laraxot/dev
 GetAuthorizedQuantityUsageAction::execute(AuthorizedWaste $authorized, float $currentStockKg): AuthorizationUsageData
 CreateFirAction::execute(FirData $data): Fir
 RecordFirAcceptanceAction::execute(Fir $fir, AcceptanceEnum $acceptance, float $acceptedKg, \DateTimeInterface $arrivedAt, ?string $reason = null): Fir
@@ -132,4 +177,11 @@ passata a `GetAuthorizedQuantityUsageAction`.
 `tests/Unit`: formato e validazione del codice EER, regole degli enum (operazioni R/D, HP, transizioni FIR, causali).
 `tests/Feature`: numerazione progressiva e cambio anno, numerazione concorrente con processi reali (`pcntl_fork`),
 validazioni, immutabilità dopo la trasmissione, rettifica, `FindAuthorizedWasteAction` (scadenza, operazione non
+<<<<<<< HEAD
 autorizzata, titolo inattivo), utilizzo dell'autorizzazione annuo/istantaneo, FIR, import CSV.
+=======
+autorizzata, titolo inattivo), utilizzo dell'autorizzazione annuo/istantaneo, FIR, import CSV, immutabilità
+del FIR dopo la bozza (`FirImmutabilityTest`).
+
+Storie: [`docs/stories/`](stories/).
+>>>>>>> laraxot/dev

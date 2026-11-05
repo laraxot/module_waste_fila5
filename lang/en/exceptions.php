@@ -41,6 +41,14 @@ return [
         'rectification_type_mismatch' => 'A rectification must have the same type (load/unload) as the original entry.',
         'rectification_reason_missing' => 'Specify the rectification reason.',
     ],
+<<<<<<< HEAD
+=======
+    'immutable_fir' => [
+        'fields' => 'Form :fir has already been issued: :fields cannot be changed. After the draft only status, travel dates, acceptance and the RENTRI number change.',
+        'status' => 'Form :fir cannot move from status :from to status :to.',
+        'deletion' => 'Form :fir has already been issued and cannot be deleted: cancel it instead.',
+    ],
+>>>>>>> laraxot/dev
     'immutable_register_entry' => [
         'transmitted' => 'Entry :year/:number has been transmitted to RENTRI and cannot be changed: record a rectification.',
         'numbering' => 'Register, year, number and recording date of entry :year/:number cannot be changed.',

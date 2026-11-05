@@ -25,9 +25,20 @@ return new class extends XotBaseMigration
             $table->string('pec')->nullable();
             $table->string('phone')->nullable();
             $table->boolean('is_active')->default(true)->index();
+<<<<<<< HEAD
         });
         // -- UPDATE --
         $this->tableUpdate(function (Blueprint $table): void {
+=======
+            $table->string('tenant_id', 36)->nullable()->index()->comment('Cliente dell\'area clienti (tenant del modulo User)');
+        });
+        // -- UPDATE --
+        $this->tableUpdate(function (Blueprint $table): void {
+            if (! $this->hasColumn('tenant_id')) {
+                $table->string('tenant_id', 36)->nullable()->index()->comment('Cliente dell\'area clienti (tenant del modulo User)');
+            }
+
+>>>>>>> laraxot/dev
             $this->updateTimestamps($table, true);
         });
     }
