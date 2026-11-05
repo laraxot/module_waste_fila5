@@ -32,6 +32,13 @@ class OperatorForm extends XotBaseResourceForm
             'pec' => TextInput::make('pec')->email()->maxLength(255),
             'phone' => TextInput::make('phone')->tel()->maxLength(255),
             'is_active' => Toggle::make('is_active')->default(true),
+<<<<<<< HEAD
+=======
+            'tenant_id' => Select::make('tenant_id')
+                ->relationship('tenant', 'name')
+                ->searchable()
+                ->preload(),
+>>>>>>> laraxot/dev
         ];
     }
 }

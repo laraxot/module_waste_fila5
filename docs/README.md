@@ -56,6 +56,13 @@ codice pericoloso ⇒ almeno una HP, codice non pericoloso ⇒ nessuna HP; opera
 data operazione non futura (tolleranza 5 minuti); carico senza `load_entry_ids`; scarico con almeno un carico dello
 stesso registro, stesso codice EER, non rettificato; FIR (se indicato) non annullato e con lo stesso codice EER.
 
+<<<<<<< HEAD
+=======
+### Soggetti e area clienti
+
+`operators.tenant_id` collega un soggetto a un cliente (tenant del modulo User, `XotData::getTenantClass()`). È l'unica fonte del legame: cantieri (`operator_sites`), FIR (`producer_operator_id`) e conferimenti di Roosko sono del cliente attraverso il soggetto, senza `tenant_id` ripetuti. Relazione `Operator::tenant()`, scope `Operator::ofTenant($tenant)`, campo *Cliente* nel form del soggetto. Story: `Modules/Roosko/docs/stories/01.area-cliente-cantieri.story.md`.
+
+>>>>>>> laraxot/dev
 ## Enum (valori fissati)
 
 `HazardPropertyEnum` (HP1…HP15), `WasteOperationEnum` (R1…R13, D1…D15; `isRecovery()`, `isDisposal()`,
