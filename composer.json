@@ -1,0 +1,83 @@
+{
+    "name": "laraxot/module_waste_fila5",
+    "description": "Waste regulatory domain module for the Laraxot ecosystem: EWC/EER codes, operators and sites, plant authorizations, waste identification forms (FIR), chronological load/unload register.",
+    "keywords": [
+        "laraxot",
+        "laravel",
+        "filament",
+        "module_waste",
+        "waste",
+        "rifiuti",
+        "eer",
+        "fir",
+        "rentri"
+    ],
+    "homepage": "https://github.com/laraxot/module_waste_fila5",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Marco Sottana",
+            "email": "marco.sottana@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Modules\\Waste\\Providers\\WasteServiceProvider",
+                "Modules\\Waste\\Providers\\Filament\\AdminPanelProvider"
+            ],
+            "aliases": []
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\Waste\\": "app/",
+            "Modules\\Waste\\Database\\Factories\\": "database/factories/",
+            "Modules\\Waste\\Database\\Seeders\\": "database/seeders/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Modules\\Waste\\Tests\\": "tests/"
+        }
+    },
+    "require": {
+        "php": "^8.3",
+        "spatie/laravel-medialibrary": "*"
+    },
+    "require-dev": {},
+    "repositories_comment": [
+        {
+            "type": "path",
+            "url": "../Xot"
+        },
+        {
+            "type": "path",
+            "url": "../Geo"
+        }
+    ],
+    "scripts": {
+        "post-autoload-dump": [],
+        "post-update-cmd": [
+            "Illuminate\\Foundation\\ComposerScripts::postUpdate"
+        ],
+        "analyse": "vendor/bin/phpstan analyse",
+        "test": "./vendor/bin/pest --no-coverage",
+        "test-coverage": "vendor/bin/pest --coverage-html coverage",
+        "format": "vendor/bin/php-cs-fixer fix --allow-risky=yes",
+        "lint": [
+            "@php vendor/bin/pint",
+            "@php vendor/bin/phpstan analyse"
+        ]
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "wikimedia/composer-merge-plugin": true
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
