@@ -8,6 +8,7 @@ declare(strict_types=1);
  * stanno nel codice perché sono invarianti di legge.
  */
 return [
+    'navigation_sort' => 6,
     'name' => 'Waste',
     'description' => 'Dominio normativo dei rifiuti: EER, soggetti, autorizzazioni, FIR, registro di carico e scarico',
     'icon' => 'heroicon-o-trash',
