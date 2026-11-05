@@ -1,0 +1,18 @@
+{
+    "name": "Waste",
+    "alias": "waste",
+    "description": "Dominio normativo dei rifiuti (D.Lgs. 152/2006, DM 59/2023 RENTRI): codici EER, soggetti e unità locali, autorizzazioni impianto, FIR, registro cronologico di carico e scarico",
+    "keywords": ["waste", "rifiuti", "eer", "fir", "rentri", "registro-carico-scarico"],
+    "priority": 0,
+    "active": 1,
+    "order": 20,
+    "providers": [
+        "Modules\\Waste\\Providers\\WasteServiceProvider",
+        "Modules\\Waste\\Providers\\Filament\\AdminPanelProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": ["Xot", "Geo"],
+    "minimumCoreVersion": "10.0",
+    "phpVersion": "^8.3"
+}
