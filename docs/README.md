@@ -75,6 +75,18 @@ codice pericoloso ⇒ almeno una HP, codice non pericoloso ⇒ nessuna HP; opera
 data operazione non futura (tolleranza 5 minuti); carico senza `load_entry_ids`; scarico con almeno un carico dello
 stesso registro, stesso codice EER, non rettificato; FIR (se indicato) non annullato e con lo stesso codice EER.
 
+### Titoli autorizzativi validi alla data dell'operazione
+
+Un codice autorizzato (`AuthorizedWaste`) vale solo se il suo titolo è valido **alla data dell'operazione**:
+attivo, già rilasciato, non scaduto (scadenza inclusa), non eliminato (`PlantAuthorization::isValidOn`/`scopeValidOn`,
+`AuthorizedWaste::isValidOn`/`scopeValidOn`). `FindAuthorizedWasteAction` riceve la data (`$on`, default oggi) e
+ignora i titoli non validi in quel giorno (audit database R11).
+
+Con più titoli sullo stesso EER (rinnovo, vecchio titolo ancora attivo) i limiti **non si sommano**: vale il titolo
+rilasciato per ultimo (`issued_at`, poi `id`). Chi calcola utilizzi o percentuali (in Roosko: guard di posizionamento
+e riepilogo giacenze per EER) deve filtrare con `AuthorizedWaste::validOn($data)` e prendere un solo codice per EER,
+non la somma di `max_storage_kg`.
+
 ### Soggetti e area clienti
 
 `operators.tenant_id` collega un soggetto a un cliente (tenant del modulo User, `XotData::getTenantClass()`). È l'unica fonte del legame: cantieri (`operator_sites`), FIR (`producer_operator_id`) e conferimenti di Roosko sono del cliente attraverso il soggetto, senza `tenant_id` ripetuti. Relazione `Operator::tenant()`, scope `Operator::ofTenant($tenant)`, campo *Cliente* nel form del soggetto. Story: `Modules/Roosko/docs/stories/01.area-cliente-cantieri.story.md`.
@@ -91,7 +103,7 @@ stesso registro, stesso codice EER, non rettificato; FIR (se indicato) non annul
 ```php
 PostRegisterEntryAction::execute(RegisterEntryData $data): RegisterEntry
 RectifyRegisterEntryAction::execute(RegisterEntry $entry, RegisterEntryData $corrected, string $reason): RegisterEntry
-FindAuthorizedWasteAction::execute(OperatorSite $plant, EwcCode $ewc, WasteOperationEnum $operation): ?AuthorizedWaste
+FindAuthorizedWasteAction::execute(OperatorSite $plant, EwcCode $ewc, WasteOperationEnum $operation, ?CarbonInterface $on = null): ?AuthorizedWaste
 GetAuthorizedQuantityUsageAction::execute(AuthorizedWaste $authorized, float $currentStockKg): AuthorizationUsageData
 CreateFirAction::execute(FirData $data): Fir
 RecordFirAcceptanceAction::execute(Fir $fir, AcceptanceEnum $acceptance, float $acceptedKg, \DateTimeInterface $arrivedAt, ?string $reason = null): Fir
