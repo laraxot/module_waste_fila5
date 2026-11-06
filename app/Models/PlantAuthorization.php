@@ -43,6 +43,8 @@ class PlantAuthorization extends BaseModel implements HasMedia
 
     public const string DOCUMENT_COLLECTION = 'document';
 
+    public const string DEFAULT_DOCUMENT_DISK = 'local';
+
     /** @var list<string> */
     protected $fillable = [
         'operator_site_id',
@@ -80,15 +82,23 @@ class PlantAuthorization extends BaseModel implements HasMedia
     {
         $collection = $this->addMediaCollection(self::DOCUMENT_COLLECTION);
 
-        $disk = config('waste.authorization_document.disk');
-        if (is_string($disk) && $disk !== '') {
-            $collection->useDisk($disk);
-        }
+        $collection->useDisk(self::documentDisk());
 
         $mimeTypes = config('waste.authorization_document.mime_types', []);
         if (is_array($mimeTypes) && $mimeTypes !== []) {
             $collection->acceptsMimeTypes(array_values(array_filter($mimeTypes, is_string(...))));
         }
+    }
+
+    /**
+     * Disco degli atti: quello configurato, altrimenti il disco privato `local`. Mai il default di
+     * medialibrary (`public`), servito senza autorizzazione.
+     */
+    public static function documentDisk(): string
+    {
+        $disk = config('waste.authorization_document.disk');
+
+        return is_string($disk) && $disk !== '' ? $disk : self::DEFAULT_DOCUMENT_DISK;
     }
 
     /** Attiva, già rilasciata e non scaduta alla data indicata (la scadenza è inclusa). */

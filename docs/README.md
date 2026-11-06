@@ -136,7 +136,7 @@ Etichette solo da `lang/`.
 ## Punti di estensione (`config/config.php` → `config('waste.*')`)
 
 - `register.transaction_attempts`: tentativi su deadlock / collisione di numerazione.
-- `authorization_document.disk`, `authorization_document.mime_types`: archiviazione degli atti.
+- `authorization_document.disk` (default `local`, disco privato; env `WASTE_AUTHORIZATION_DOCUMENT_DISK`), `authorization_document.mime_types`: archiviazione degli atti. Mai il disco `public` di medialibrary (URL indovinabili): il pannello apre gli atti con URL temporanei firmati (`visibility('private')`). `PlantAuthorization::documentDisk()` applica il default anche se la variabile è vuota.
 - `ewc_import.disk`, `ewc_import.directory`: file temporanei dell'import CSV.
 
 ## Seeder
