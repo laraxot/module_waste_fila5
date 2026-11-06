@@ -20,6 +20,8 @@ use Modules\Waste\Models\Operator;
 use Modules\Waste\Models\Register;
 use Modules\Xot\Database\Migrations\XotBaseMigration;
 
+use function Safe\glob;
+
 /**
  * Dati di prova comuni ai test del modulo.
  */
@@ -38,14 +40,11 @@ final class WasteFixtures
     public static function migrate(): void
     {
         $files = glob(dirname(__DIR__, 2).'/database/migrations/*.php');
-        if ($files === false) {
-            return;
-        }
         sort($files);
 
         foreach ($files as $file) {
             $migration = require $file;
-            if ($migration instanceof XotBaseMigration) {
+            if ($migration instanceof XotBaseMigration && method_exists($migration, 'up')) {
                 $migration->up();
             }
         }

@@ -7,6 +7,9 @@ namespace Modules\Waste\Actions;
 use Modules\Waste\Exceptions\InvalidEwcCodeException;
 use Spatie\QueueableAction\QueueableAction;
 
+use function Safe\preg_match;
+use function Safe\preg_replace;
+
 /**
  * Normalizza un codice EER nel formato canonico `CC SS VV` (capitolo, sottocapitolo, voce: `19 12 04`).
  *

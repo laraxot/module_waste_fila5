@@ -8,14 +8,15 @@ use Modules\Waste\Models\EwcCode;
 use Modules\Waste\Tests\TestCase;
 use PHPUnit\Framework\Assert;
 
+use function Safe\file_put_contents;
+use function Safe\mb_convert_encoding;
+use function Safe\tempnam;
+
 uses(TestCase::class);
 
 function ewcCsv(string $content): string
 {
     $path = tempnam(sys_get_temp_dir(), 'ewc_');
-    if ($path === false) {
-        throw new RuntimeException('tempnam failed');
-    }
     file_put_contents($path, $content);
 
     return $path;
@@ -24,10 +25,14 @@ function ewcCsv(string $content): string
 describe('ImportEwcCodesFromCsvAction', function (): void {
     test('imports and updates codes, accepting header, asterisk and Windows-1252 text', function (): void {
         // Codici fittizi (sottocapitolo 9x) per non toccare il catalogo reale del DB di test.
+        $encodedDescription = mb_convert_encoding('prova tre è', 'Windows-1252', 'UTF-8');
+        if (! is_string($encodedDescription)) {
+            throw new RuntimeException('CSV fixture encoding failed.');
+        }
         $csv = "\xEF\xBB\xBFcode;description;is_hazardous;is_mirror\n"
             ."19 91 01;prova uno;0;0\n"
             ."199102*;prova due pericolosa;;si\n"
-            ."19.91.03;".mb_convert_encoding('prova tre è', 'Windows-1252', 'UTF-8').";no;1\n"
+            ."19.91.03;".$encodedDescription.";no;1\n"
             ."\n";
         $path = ewcCsv($csv);
 

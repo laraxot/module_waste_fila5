@@ -26,6 +26,9 @@ use PHPUnit\Framework\Assert;
 
 uses(TestCase::class);
 
+/**
+ * @param  list<HazardPropertyEnum>  $hazardProperties
+ */
 function firData(bool $hazardous = false, array $hazardProperties = [], FirStatusEnum $status = FirStatusEnum::DRAFT, ?Operator $producer = null): FirData
 {
     $producer ??= OperatorFactory::new()->withRoles(OperatorRoleEnum::PRODUCER)->createOne();
@@ -120,7 +123,7 @@ describe('ChangeFirStatusAction and RecordFirAcceptanceAction', function (): voi
             app(RecordFirAcceptanceAction::class)->execute($fir, AcceptanceEnum::REJECTED, $kg, CarbonImmutable::now(), $reason);
             Assert::fail('exception expected');
         } catch (Throwable $e) {
-            Assert::assertInstanceOf($exception, $e);
+            Assert::assertSame($exception, $e::class);
         }
     })->with([
         'kg not zero' => [10.0, 'non conforme', InvalidQuantityException::class],

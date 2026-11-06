@@ -135,7 +135,7 @@ describe('FindAuthorizedWasteAction alla data dell\'operazione', function (): vo
     });
 
     test('the validOn scope keeps only codes of valid permits', function (): void {
-        [, $ewc, $valid] = authorizedPlant();
+        [, , $valid] = authorizedPlant();
         [, , $expired] = authorizedPlant(PlantAuthorizationFactory::new()->expired()->createOne());
 
         $ids = AuthorizedWaste::query()->validOn(CarbonImmutable::today())->whereKey([$valid->id, $expired->id])->pluck('id')->all();

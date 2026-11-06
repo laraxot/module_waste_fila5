@@ -13,7 +13,7 @@ use Modules\Xot\Models\XotBaseModel;
  */
 abstract class BaseModel extends XotBaseModel
 {
-    /** @var string|null */
+    /** @var string */
     protected $connection = 'waste';
 
     /**

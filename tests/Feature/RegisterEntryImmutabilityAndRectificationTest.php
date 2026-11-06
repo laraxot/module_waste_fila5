@@ -115,7 +115,7 @@ describe('RectifyRegisterEntryAction', function (): void {
     })->throws(InvalidRegisterEntryException::class);
 
     test('a superseded load cannot be referenced by an unload', function (): void {
-        [$original, $data] = postedLoad();
+        [$original] = postedLoad();
         app(RectifyRegisterEntryAction::class)->execute($original, RegisterEntryData::fromEntry($original), 'correzione');
         $register = $original->register;
 

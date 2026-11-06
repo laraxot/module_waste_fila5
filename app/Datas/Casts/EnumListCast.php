@@ -6,6 +6,7 @@ namespace Modules\Waste\Datas\Casts;
 
 use Spatie\LaravelData\Casts\Cast;
 use Spatie\LaravelData\Casts\Uncastable;
+use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Support\Creation\CreationContext;
 use Spatie\LaravelData\Support\DataProperty;
 
@@ -23,6 +24,7 @@ final readonly class EnumListCast implements Cast
 
     /**
      * @param  array<string, mixed>  $properties
+     * @param  CreationContext<Data>  $context
      * @return list<\BackedEnum>|Uncastable
      */
     public function cast(DataProperty $property, mixed $value, array $properties, CreationContext $context): array|Uncastable

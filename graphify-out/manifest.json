@@ -1,0 +1,1472 @@
+{
+  "app/Actions/AppendRegisterEntryAction.php": {
+    "mtime": 1793891838.7771013,
+    "seen": 1793913552.3029113,
+    "ast_hash": "05f7b03a181abce5910b0e12e91dc191",
+    "semantic_hash": ""
+  },
+  "app/Actions/ChangeFirStatusAction.php": {
+    "mtime": 1793891838.777138,
+    "seen": 1793913552.3029184,
+    "ast_hash": "fdb15de8a7b52a10bb2b54e3414cc8f8",
+    "semantic_hash": ""
+  },
+  "app/Actions/CreateFirAction.php": {
+    "mtime": 1793891838.777138,
+    "seen": 1793913552.3029213,
+    "ast_hash": "533f8ab39ee01fab0c883c678057d986",
+    "semantic_hash": ""
+  },
+  "app/Actions/EnsureHazardConsistencyAction.php": {
+    "mtime": 1793891838.777138,
+    "seen": 1793913552.3029225,
+    "ast_hash": "fab6941e625479aea5b01dc601465c15",
+    "semantic_hash": ""
+  },
+  "app/Actions/FindAuthorizedWasteAction.php": {
+    "mtime": 1793910330.4386938,
+    "seen": 1793913552.3029237,
+    "ast_hash": "683bcbbf2b2ea2ad43abfb5142b5e3da",
+    "semantic_hash": ""
+  },
+  "app/Actions/GetAuthorizedQuantityUsageAction.php": {
+    "mtime": 1793891838.777138,
+    "seen": 1793913552.302925,
+    "ast_hash": "8cace3b4c0954165fcdb192a7778bf79",
+    "semantic_hash": ""
+  },
+  "app/Actions/ImportEwcCodesFromCsvAction.php": {
+    "mtime": 1793913536.2143586,
+    "seen": 1793913552.3029263,
+    "ast_hash": "edfb746284558c50c24a40f28edacb1b",
+    "semantic_hash": ""
+  },
+  "app/Actions/NormalizeEwcCodeAction.php": {
+    "mtime": 1793913343.9686575,
+    "seen": 1793913552.302927,
+    "ast_hash": "e7bf2fb544419aeaa0bcb13b20c421e9",
+    "semantic_hash": ""
+  },
+  "app/Actions/PostRegisterEntryAction.php": {
+    "mtime": 1793891838.777138,
+    "seen": 1793913552.3029282,
+    "ast_hash": "99af37085f18b5019a63604c43de4528",
+    "semantic_hash": ""
+  },
+  "app/Actions/RecordFirAcceptanceAction.php": {
+    "mtime": 1793891838.777138,
+    "seen": 1793913552.302929,
+    "ast_hash": "8e78745c4e96486e3302e277cbf63948",
+    "semantic_hash": ""
+  },
+  "app/Actions/RectifyRegisterEntryAction.php": {
+    "mtime": 1793891838.777138,
+    "seen": 1793913552.3029299,
+    "ast_hash": "2465922c99906055886540a0e4c35033",
+    "semantic_hash": ""
+  },
+  "app/Actions/ValidateRegisterEntryDataAction.php": {
+    "mtime": 1793891838.777138,
+    "seen": 1793913552.3029313,
+    "ast_hash": "136819936563190e0397cce9c36be2ec",
+    "semantic_hash": ""
+  },
+  "app/Console/Commands/_components.json": {
+    "mtime": 1793895197.6254158,
+    "seen": 1793913552.3029323,
+    "ast_hash": "d751713988987e9331980363e24189ce",
+    "semantic_hash": ""
+  },
+  "app/Datas/AuthorizationUsageData.php": {
+    "mtime": 1793891838.777138,
+    "seen": 1793913552.3029332,
+    "ast_hash": "77f2729ce20fb42c7c77447098f6fe95",
+    "semantic_hash": ""
+  },
+  "app/Datas/Casts/EnumListCast.php": {
+    "mtime": 1793913343.9696574,
+    "seen": 1793913552.3029342,
+    "ast_hash": "aed58330fcbaa06441bc82637871718b",
+    "semantic_hash": ""
+  },
+  "app/Datas/FirData.php": {
+    "mtime": 1793891838.777314,
+    "seen": 1793913552.3029354,
+    "ast_hash": "a966d123d2e38631a36b9caabe74be6c",
+    "semantic_hash": ""
+  },
+  "app/Datas/RegisterEntryData.php": {
+    "mtime": 1793891838.777314,
+    "seen": 1793913552.302936,
+    "ast_hash": "b5830b9e5e9a90d35573612ffb43eaa8",
+    "semantic_hash": ""
+  },
+  "app/Enums/AcceptanceEnum.php": {
+    "mtime": 1793891838.777314,
+    "seen": 1793913552.3029368,
+    "ast_hash": "35edfea6dc28f93a5b32c1d4aaf9d570",
+    "semantic_hash": ""
+  },
+  "app/Enums/AuthorizationTypeEnum.php": {
+    "mtime": 1793891838.7773864,
+    "seen": 1793913552.3029377,
+    "ast_hash": "ae7443c6a1026a508974a96d8d4d8d35",
+    "semantic_hash": ""
+  },
+  "app/Enums/FirStatusEnum.php": {
+    "mtime": 1793910297.8378642,
+    "seen": 1793913552.302939,
+    "ast_hash": "e932b99ab12e339259e63b3737bacb51",
+    "semantic_hash": ""
+  },
+  "app/Enums/HazardPropertyEnum.php": {
+    "mtime": 1793891838.7773864,
+    "seen": 1793913552.3029397,
+    "ast_hash": "ee746494c9f739c53af5771a0ef88be9",
+    "semantic_hash": ""
+  },
+  "app/Enums/OperatorRoleEnum.php": {
+    "mtime": 1793891838.7773864,
+    "seen": 1793913552.3029408,
+    "ast_hash": "0534b082c3f6d1490c7b784dc0b1c2de",
+    "semantic_hash": ""
+  },
+  "app/Enums/PhysicalStateEnum.php": {
+    "mtime": 1793891838.7773864,
+    "seen": 1793913552.3029423,
+    "ast_hash": "9b855c10928c9557c2481620694faaea",
+    "semantic_hash": ""
+  },
+  "app/Enums/QuantityUnitEnum.php": {
+    "mtime": 1793891838.7773864,
+    "seen": 1793913552.3029432,
+    "ast_hash": "630b31d305cefa91ca94e7fd69775066",
+    "semantic_hash": ""
+  },
+  "app/Enums/RegisterCauseEnum.php": {
+    "mtime": 1793891838.7773864,
+    "seen": 1793913552.302944,
+    "ast_hash": "49c6f1faf0dd85141662eaa6440085b7",
+    "semantic_hash": ""
+  },
+  "app/Enums/RegisterEntryTypeEnum.php": {
+    "mtime": 1793891838.7773864,
+    "seen": 1793913552.3029451,
+    "ast_hash": "84f93c2c5a714f32e17a42774e18583a",
+    "semantic_hash": ""
+  },
+  "app/Enums/WasteOperationEnum.php": {
+    "mtime": 1793891838.7773864,
+    "seen": 1793913552.302946,
+    "ast_hash": "8ea61dbe3ac32a2ed8005624ba26f865",
+    "semantic_hash": ""
+  },
+  "app/Exceptions/EwcCsvImportException.php": {
+    "mtime": 1793891838.7773864,
+    "seen": 1793913552.302947,
+    "ast_hash": "148b2ce3603e2b5209c35c828ba8ae5d",
+    "semantic_hash": ""
+  },
+  "app/Exceptions/HazardPropertiesMismatchException.php": {
+    "mtime": 1793891838.7775035,
+    "seen": 1793913552.3029482,
+    "ast_hash": "dbb6c981bf7c3efaf2268219362d423f",
+    "semantic_hash": ""
+  },
+  "app/Exceptions/ImmutableFirException.php": {
+    "mtime": 1793908906.565721,
+    "seen": 1793913552.3029494,
+    "ast_hash": "5afc20c72db626c5f9984a05e47fd965",
+    "semantic_hash": ""
+  },
+  "app/Exceptions/ImmutableRegisterEntryException.php": {
+    "mtime": 1793891838.7775035,
+    "seen": 1793913552.3029504,
+    "ast_hash": "abd631e75fe063dcddd2ec8b301c1edd",
+    "semantic_hash": ""
+  },
+  "app/Exceptions/InvalidEwcCodeException.php": {
+    "mtime": 1793891838.7775035,
+    "seen": 1793913552.3029513,
+    "ast_hash": "6362c5ce25e750970222a3b67741cf52",
+    "semantic_hash": ""
+  },
+  "app/Exceptions/InvalidFirException.php": {
+    "mtime": 1793891838.7775035,
+    "seen": 1793913552.3029525,
+    "ast_hash": "e0d88329ee4f1ad941346d7298bdc916",
+    "semantic_hash": ""
+  },
+  "app/Exceptions/InvalidFirStatusTransitionException.php": {
+    "mtime": 1793891838.7775035,
+    "seen": 1793913552.3029532,
+    "ast_hash": "ad692f20268dfff6a35bcb6d4b8e40cf",
+    "semantic_hash": ""
+  },
+  "app/Exceptions/InvalidQuantityException.php": {
+    "mtime": 1793891838.7775035,
+    "seen": 1793913552.3029542,
+    "ast_hash": "a8a7adcc9276ef70978d1b551eebe072",
+    "semantic_hash": ""
+  },
+  "app/Exceptions/InvalidRegisterEntryException.php": {
+    "mtime": 1793891838.7775035,
+    "seen": 1793913552.302955,
+    "ast_hash": "bd64625c3421bedf8440e2f768f2fabb",
+    "semantic_hash": ""
+  },
+  "app/Exceptions/RegisterEntryAlreadyRectifiedException.php": {
+    "mtime": 1793891838.7775035,
+    "seen": 1793913552.302956,
+    "ast_hash": "dfe88cefe42e1115d65146111133d793",
+    "semantic_hash": ""
+  },
+  "app/Exceptions/WasteDomainException.php": {
+    "mtime": 1793891838.7775035,
+    "seen": 1793913552.3029568,
+    "ast_hash": "e0632bb70a47cb32bc389b6fe9f1a4dd",
+    "semantic_hash": ""
+  },
+  "app/Filament/Actions/RectifyEntryAction.php": {
+    "mtime": 1793891838.7775886,
+    "seen": 1793913552.3029575,
+    "ast_hash": "cdb1fb09e0bfeacf61bd77c97d4d0e1e",
+    "semantic_hash": ""
+  },
+  "app/Filament/Resources/EwcCodeResource.php": {
+    "mtime": 1793891838.7775886,
+    "seen": 1793913552.3029585,
+    "ast_hash": "3b4914afffeaa9a1c1a1e862231c503a",
+    "semantic_hash": ""
+  },
+  "app/Filament/Resources/EwcCodeResource/Pages/CreateEwcCode.php": {
+    "mtime": 1793891838.7776287,
+    "seen": 1793913552.3029594,
+    "ast_hash": "71b8785fe63a9e69251d03289d3889f0",
+    "semantic_hash": ""
+  },
+  "app/Filament/Resources/EwcCodeResource/Pages/EditEwcCode.php": {
+    "mtime": 1793891838.7776537,
+    "seen": 1793913552.3029604,
+    "ast_hash": "1601915d899f88eefd46965e52b0d80b",
+    "semantic_hash": ""
+  },
+  "app/Filament/Resources/EwcCodeResource/Pages/ListEwcCodes.php": {
+    "mtime": 1793891838.7776537,
+    "seen": 1793913552.3029613,
+    "ast_hash": "3d7d0b8f73a30ab61bd7e49a425e87a6",
+    "semantic_hash": ""
+  },
+  "app/Filament/Resources/EwcCodeResource/Schemas/EwcCodeForm.php": {
+    "mtime": 1793891838.7776537,
+    "seen": 1793913552.302963,
+    "ast_hash": "3833c266542258838a2bd1bc3d830e47",
+    "semantic_hash": ""
+  },
+  "app/Filament/Resources/EwcCodeResource/Schemas/EwcCodeInfolist.php": {
+    "mtime": 1793891838.777693,
+    "seen": 1793913552.302964,
+    "ast_hash": "7e36e30f2f1be9748a41c98d24f63f13",
+    "semantic_hash": ""
+  },
+  "app/Filament/Resources/EwcCodeResource/Tables/EwcCodesTable.php": {
+    "mtime": 1793891838.777693,
+    "seen": 1793913552.302965,
+    "ast_hash": "7ce29f232fb723bfb0a099ae255462ce",
+    "semantic_hash": ""
+  },
+  "app/Filament/Resources/FirResource.php": {
+    "mtime": 1793910297.8380837,
+    "seen": 1793913552.3029656,
+    "ast_hash": "ee5ab90cc84bbdc7527f9f4f1c49a260",
+    "semantic_hash": ""
+  },
+  "app/Filament/Resources/FirResource/Pages/CreateFir.php": {
+    "mtime": 1793891838.7777426,
+    "seen": 1793913552.3029666,
+    "ast_hash": "6332df627f089377fff87d9a7dd157af",
+    "semantic_hash": ""
+  },
+  "app/Filament/Resources/FirResource/Pages/EditFir.php": {
+    "mtime": 1793891838.7777581,
+    "seen": 1793913552.3029675,
+    "ast_hash": "44454ba08d69029946198a4e3acadeee",
+    "semantic_hash": ""
+  },
+  "app/Filament/Resources/FirResource/Pages/ListFirs.php": {
+    "mtime": 1793891838.7777581,
+    "seen": 1793913552.3029685,
+    "ast_hash": "64fdb160df069e6a55e48ff9bc2a010f",
+    "semantic_hash": ""
+  },
+  "app/Filament/Resources/FirResource/Pages/ViewFir.php": {
+    "mtime": 1793891838.7777581,
+    "seen": 1793913552.3029695,
+    "ast_hash": "b07a4ed56638a987704ba804699fc092",
+    "semantic_hash": ""
+  },
+  "app/Filament/Resources/FirResource/Schemas/FirForm.php": {
+    "mtime": 1793891838.7777581,
+    "seen": 1793913552.3029702,
+    "ast_hash": "8073d232c2dfa46a4c4c97b2768154d9",
+    "semantic_hash": ""
+  },
+  "app/Filament/Resources/FirResource/Schemas/FirInfolist.php": {
+    "mtime": 1793891838.777821,
+    "seen": 1793913552.3029711,
+    "ast_hash": "0db38fa6a64cb40d87b8fd7b345052db",
+    "semantic_hash": ""
+  },
+  "app/Filament/Resources/FirResource/Tables/FirsTable.php": {
+    "mtime": 1793891838.777821,
+    "seen": 1793913552.3029718,
+    "ast_hash": "615995823c6a4f04107a724e7c94f9f1",
+    "semantic_hash": ""
+  },
+  "app/Filament/Resources/OperatorResource.php": {
+    "mtime": 1793891838.777821,
+    "seen": 1793913552.302973,
+    "ast_hash": "8abb870887dba692ec1ff80767be57b7",
+    "semantic_hash": ""
+  },
+  "app/Filament/Resources/OperatorResource/Pages/CreateOperator.php": {
+    "mtime": 1793891838.7778642,
+    "seen": 1793913552.302974,
+    "ast_hash": "abce21b6a243881ae316226c39aa17b4",
+    "semantic_hash": ""
+  },
+  "app/Filament/Resources/OperatorResource/Pages/EditOperator.php": {
+    "mtime": 1793891838.77788,
+    "seen": 1793913552.3029747,
+    "ast_hash": "3e48ed1ea8b5115217f2b50d84f87ffd",
+    "semantic_hash": ""
+  },
+  "app/Filament/Resources/OperatorResource/Pages/ListOperators.php": {
+    "mtime": 1793891838.77788,
+    "seen": 1793913552.302976,
+    "ast_hash": "bd35b9a4ca76f6ff5b95b28a63738ebc",
+    "semantic_hash": ""
+  },
+  "app/Filament/Resources/OperatorResource/Pages/ViewOperator.php": {
+    "mtime": 1793891838.77788,
+    "seen": 1793913552.3029768,
+    "ast_hash": "a6b986468510d5b0ef681f585a7902b5",
+    "semantic_hash": ""
+  },
+  "app/Filament/Resources/OperatorResource/RelationManagers/OperatorSitesRelationManager.php": {
+    "mtime": 1793891838.77788,
+    "seen": 1793913552.3029778,
+    "ast_hash": "153c49ee996d68f4a0afb9d5e83ec4a8",
+    "semantic_hash": ""
+  },
+  "app/Filament/Resources/OperatorResource/Schemas/OperatorForm.php": {
+    "mtime": 1793910395.0759208,
+    "seen": 1793913552.3029785,
+    "ast_hash": "1d5f5020585d9a19413117289ea5ca8c",
+    "semantic_hash": ""
+  },
+  "app/Filament/Resources/OperatorResource/Schemas/OperatorInfolist.php": {
+    "mtime": 1793891838.7779343,
+    "seen": 1793913552.3029795,
+    "ast_hash": "0f20d0f64f029b2b45ac5fd2aac49913",
+    "semantic_hash": ""
+  },
+  "app/Filament/Resources/OperatorResource/Tables/OperatorsTable.php": {
+    "mtime": 1793891838.7779343,
+    "seen": 1793913552.3029807,
+    "ast_hash": "c0d8f6f5f8560257218e41f0f4a0686b",
+    "semantic_hash": ""
+  },
+  "app/Filament/Resources/OperatorSiteResource.php": {
+    "mtime": 1793891838.7779343,
+    "seen": 1793913552.3029814,
+    "ast_hash": "c38b060707048737efd1fe9f4bedd8d4",
+    "semantic_hash": ""
+  },
+  "app/Filament/Resources/OperatorSiteResource/Pages/CreateOperatorSite.php": {
+    "mtime": 1793891838.777971,
+    "seen": 1793913552.302982,
+    "ast_hash": "a30877cf8f003621dcc5a477c4d1d6d0",
+    "semantic_hash": ""
+  },
+  "app/Filament/Resources/OperatorSiteResource/Pages/EditOperatorSite.php": {
+    "mtime": 1793891838.777988,
+    "seen": 1793913552.3029828,
+    "ast_hash": "79d5a93802f0eb18fd2bf623688078cf",
+    "semantic_hash": ""
+  },
+  "app/Filament/Resources/OperatorSiteResource/Pages/ListOperatorSites.php": {
+    "mtime": 1793891838.777988,
+    "seen": 1793913552.3029838,
+    "ast_hash": "504380c63b9989551d7ff991ec3a6376",
+    "semantic_hash": ""
+  },
+  "app/Filament/Resources/OperatorSiteResource/Pages/ViewOperatorSite.php": {
+    "mtime": 1793891838.777988,
+    "seen": 1793913552.3029847,
+    "ast_hash": "2c4ed8643da336c9d7d641e6f4b5ac9b",
+    "semantic_hash": ""
+  },
+  "app/Filament/Resources/OperatorSiteResource/Schemas/OperatorSiteForm.php": {
+    "mtime": 1793891838.777988,
+    "seen": 1793913552.3029854,
+    "ast_hash": "eee779af2454928d87b4eb5785c0189b",
+    "semantic_hash": ""
+  },
+  "app/Filament/Resources/OperatorSiteResource/Schemas/OperatorSiteInfolist.php": {
+    "mtime": 1793891838.778032,
+    "seen": 1793913552.3029861,
+    "ast_hash": "0cb0422a25afd388bea12be5bf97581b",
+    "semantic_hash": ""
+  },
+  "app/Filament/Resources/OperatorSiteResource/Tables/OperatorSitesTable.php": {
+    "mtime": 1793891838.778032,
+    "seen": 1793913552.302987,
+    "ast_hash": "5f66bfa64a8df8950e9d12446f2e8d95",
+    "semantic_hash": ""
+  },
+  "app/Filament/Resources/PlantAuthorizationResource.php": {
+    "mtime": 1793891838.778032,
+    "seen": 1793913552.3029878,
+    "ast_hash": "1ffac272b56cf32134354d60f04d2642",
+    "semantic_hash": ""
+  },
+  "app/Filament/Resources/PlantAuthorizationResource/Pages/CreatePlantAuthorization.php": {
+    "mtime": 1793891838.7780704,
+    "seen": 1793913552.3029885,
+    "ast_hash": "bb69acd067134841e63f3c1d4da15ed4",
+    "semantic_hash": ""
+  },
+  "app/Filament/Resources/PlantAuthorizationResource/Pages/EditPlantAuthorization.php": {
+    "mtime": 1793891838.7780876,
+    "seen": 1793913552.3029892,
+    "ast_hash": "6bff4dcef841570299448d4b6e261c21",
+    "semantic_hash": ""
+  },
+  "app/Filament/Resources/PlantAuthorizationResource/Pages/ListPlantAuthorizations.php": {
+    "mtime": 1793891838.7780876,
+    "seen": 1793913552.3029902,
+    "ast_hash": "c4ea6ce3f36f808f144a025ad43ee4b8",
+    "semantic_hash": ""
+  },
+  "app/Filament/Resources/PlantAuthorizationResource/Pages/ViewPlantAuthorization.php": {
+    "mtime": 1793891838.7780876,
+    "seen": 1793913552.3029912,
+    "ast_hash": "3da456d954cbfd23627a06587adc6a09",
+    "semantic_hash": ""
+  },
+  "app/Filament/Resources/PlantAuthorizationResource/RelationManagers/AuthorizedWastesRelationManager.php": {
+    "mtime": 1793891838.7780876,
+    "seen": 1793913552.302992,
+    "ast_hash": "958ac07135c35b5ecb5c48f62def8b73",
+    "semantic_hash": ""
+  },
+  "app/Filament/Resources/PlantAuthorizationResource/Schemas/PlantAuthorizationForm.php": {
+    "mtime": 1793891838.7780876,
+    "seen": 1793913552.302993,
+    "ast_hash": "4a622dadf7fa7f595cbb72f9546dee2a",
+    "semantic_hash": ""
+  },
+  "app/Filament/Resources/PlantAuthorizationResource/Schemas/PlantAuthorizationInfolist.php": {
+    "mtime": 1793891838.7781458,
+    "seen": 1793913552.302994,
+    "ast_hash": "3fa5a0d590ed429165e54089c584e398",
+    "semantic_hash": ""
+  },
+  "app/Filament/Resources/PlantAuthorizationResource/Tables/PlantAuthorizationsTable.php": {
+    "mtime": 1793891838.7781458,
+    "seen": 1793913552.3029947,
+    "ast_hash": "28aae7e7c5eafb75c0350be2769e8b9f",
+    "semantic_hash": ""
+  },
+  "app/Filament/Resources/RegisterEntryResource.php": {
+    "mtime": 1793891838.7781458,
+    "seen": 1793913552.3029957,
+    "ast_hash": "ba9dd23cb1a1c17ba4fabceee4ee9d97",
+    "semantic_hash": ""
+  },
+  "app/Filament/Resources/RegisterEntryResource/Pages/ListRegisterEntries.php": {
+    "mtime": 1793891838.778187,
+    "seen": 1793913552.3029964,
+    "ast_hash": "378f0a04e7dee1844fcf6ac2b0ff70d2",
+    "semantic_hash": ""
+  },
+  "app/Filament/Resources/RegisterEntryResource/Pages/ViewRegisterEntry.php": {
+    "mtime": 1793891838.7782028,
+    "seen": 1793913552.3029974,
+    "ast_hash": "6e7052d4eb371dbaba5f53b791bb711a",
+    "semantic_hash": ""
+  },
+  "app/Filament/Resources/RegisterEntryResource/Schemas/RegisterEntryForm.php": {
+    "mtime": 1793891838.7782028,
+    "seen": 1793913552.3029983,
+    "ast_hash": "3a9cc9d7e48636a3b46c22018b091868",
+    "semantic_hash": ""
+  },
+  "app/Filament/Resources/RegisterEntryResource/Schemas/RegisterEntryInfolist.php": {
+    "mtime": 1793891838.77823,
+    "seen": 1793913552.302999,
+    "ast_hash": "1acc1697f8c8db9a425d50c5f237dbb8",
+    "semantic_hash": ""
+  },
+  "app/Filament/Resources/RegisterEntryResource/Tables/RegisterEntriesTable.php": {
+    "mtime": 1793891838.77823,
+    "seen": 1793913552.3029997,
+    "ast_hash": "84807899330297a006674564851f62e7",
+    "semantic_hash": ""
+  },
+  "app/Filament/Resources/RegisterResource.php": {
+    "mtime": 1793891838.77823,
+    "seen": 1793913552.3030016,
+    "ast_hash": "6ca12b44958028daf406397898fce92a",
+    "semantic_hash": ""
+  },
+  "app/Filament/Resources/RegisterResource/Pages/CreateRegister.php": {
+    "mtime": 1793891838.7782848,
+    "seen": 1793913552.3030026,
+    "ast_hash": "72f12beb7554eabb083475ba4eeab19d",
+    "semantic_hash": ""
+  },
+  "app/Filament/Resources/RegisterResource/Pages/EditRegister.php": {
+    "mtime": 1793891838.7783017,
+    "seen": 1793913552.3030033,
+    "ast_hash": "15a259024d72451bc0f7866b68c55a9f",
+    "semantic_hash": ""
+  },
+  "app/Filament/Resources/RegisterResource/Pages/ListRegisters.php": {
+    "mtime": 1793891838.7783017,
+    "seen": 1793913552.3030043,
+    "ast_hash": "c3c91555075ed5bda8d0e20d8e644507",
+    "semantic_hash": ""
+  },
+  "app/Filament/Resources/RegisterResource/Pages/ViewRegister.php": {
+    "mtime": 1793891838.7783017,
+    "seen": 1793913552.303005,
+    "ast_hash": "d5af8eef5d466e53fe84997c1dbffa26",
+    "semantic_hash": ""
+  },
+  "app/Filament/Resources/RegisterResource/RelationManagers/RegisterEntriesRelationManager.php": {
+    "mtime": 1793891838.7783017,
+    "seen": 1793913552.3030057,
+    "ast_hash": "55987d1c411d77bcad683dc211b75e9d",
+    "semantic_hash": ""
+  },
+  "app/Filament/Resources/RegisterResource/Schemas/RegisterForm.php": {
+    "mtime": 1793891838.7783017,
+    "seen": 1793913552.3030064,
+    "ast_hash": "e0291dd2b2b9e3084927133e4cb61224",
+    "semantic_hash": ""
+  },
+  "app/Filament/Resources/RegisterResource/Schemas/RegisterInfolist.php": {
+    "mtime": 1793891838.7783566,
+    "seen": 1793913552.3030076,
+    "ast_hash": "d4f2ee55a39719f8f45ce6fee3f444fa",
+    "semantic_hash": ""
+  },
+  "app/Filament/Resources/RegisterResource/Tables/RegistersTable.php": {
+    "mtime": 1793891838.7783566,
+    "seen": 1793913552.3030086,
+    "ast_hash": "71b8a571cc06fc2d4ea763cc4829ed70",
+    "semantic_hash": ""
+  },
+  "app/Models/AuthorizedWaste.php": {
+    "mtime": 1793910395.0759208,
+    "seen": 1793913552.3030093,
+    "ast_hash": "7c2244e6b6dd44266cb8baeb299158d5",
+    "semantic_hash": ""
+  },
+  "app/Models/BaseModel.php": {
+    "mtime": 1793913343.9696574,
+    "seen": 1793913552.3030102,
+    "ast_hash": "1df1fbdaa44b173c115c0dbca5026654",
+    "semantic_hash": ""
+  },
+  "app/Models/EwcCode.php": {
+    "mtime": 1793891838.7784064,
+    "seen": 1793913552.3030112,
+    "ast_hash": "75c86f6080249fbd09a4b81739cc6986",
+    "semantic_hash": ""
+  },
+  "app/Models/Fir.php": {
+    "mtime": 1793910463.5041027,
+    "seen": 1793913552.3030121,
+    "ast_hash": "a09f482de37bf85b590657c5f3506141",
+    "semantic_hash": ""
+  },
+  "app/Models/Operator.php": {
+    "mtime": 1793910395.076921,
+    "seen": 1793913552.3030128,
+    "ast_hash": "b6882d8a2b08324b544b36573dfc157b",
+    "semantic_hash": ""
+  },
+  "app/Models/OperatorSite.php": {
+    "mtime": 1793891838.7784064,
+    "seen": 1793913552.3030136,
+    "ast_hash": "a3e3ec46980a2f31eaf396517cd6c25d",
+    "semantic_hash": ""
+  },
+  "app/Models/PlantAuthorization.php": {
+    "mtime": 1793891838.7784064,
+    "seen": 1793913552.3030145,
+    "ast_hash": "f8ca92f8d4b77e1f0ed28e48230ff201",
+    "semantic_hash": ""
+  },
+  "app/Models/Policies/AuthorizedWastePolicy.php": {
+    "mtime": 1793891838.7784064,
+    "seen": 1793913552.3030155,
+    "ast_hash": "10c4f63667b20b238708a967bea38d97",
+    "semantic_hash": ""
+  },
+  "app/Models/Policies/EwcCodePolicy.php": {
+    "mtime": 1793891838.7785084,
+    "seen": 1793913552.3030162,
+    "ast_hash": "9b51d59882a8037381538be03e3d4947",
+    "semantic_hash": ""
+  },
+  "app/Models/Policies/FirPolicy.php": {
+    "mtime": 1793891838.7785084,
+    "seen": 1793913552.303017,
+    "ast_hash": "ca2236058fc8e3925fe4518bd30d90ab",
+    "semantic_hash": ""
+  },
+  "app/Models/Policies/OperatorPolicy.php": {
+    "mtime": 1793891838.7785084,
+    "seen": 1793913552.3030176,
+    "ast_hash": "c6bd0579d382fc58443736cbebe3c452",
+    "semantic_hash": ""
+  },
+  "app/Models/Policies/OperatorSitePolicy.php": {
+    "mtime": 1793891838.7785084,
+    "seen": 1793913552.3030186,
+    "ast_hash": "7517e6095ac8699d647a4a19afdf553a",
+    "semantic_hash": ""
+  },
+  "app/Models/Policies/PlantAuthorizationPolicy.php": {
+    "mtime": 1793891838.7785084,
+    "seen": 1793913552.3030193,
+    "ast_hash": "2416367c4f06ba2e998333ab8776b8a1",
+    "semantic_hash": ""
+  },
+  "app/Models/Policies/RegisterEntryPolicy.php": {
+    "mtime": 1793891838.7785084,
+    "seen": 1793913552.3030202,
+    "ast_hash": "8172723358a7cedf866283924faa7488",
+    "semantic_hash": ""
+  },
+  "app/Models/Policies/RegisterPolicy.php": {
+    "mtime": 1793891838.7785084,
+    "seen": 1793913552.303021,
+    "ast_hash": "179931a7d2aec02fc4207e1555cafd31",
+    "semantic_hash": ""
+  },
+  "app/Models/Register.php": {
+    "mtime": 1793891838.7785084,
+    "seen": 1793913552.303022,
+    "ast_hash": "807853958478588ebbb5a27b2ae531c4",
+    "semantic_hash": ""
+  },
+  "app/Models/RegisterEntry.php": {
+    "mtime": 1793913343.9696574,
+    "seen": 1793913552.3030226,
+    "ast_hash": "dc6f4eb4c73ef32fb7f99dc38ee6360e",
+    "semantic_hash": ""
+  },
+  "app/Providers/EventServiceProvider.php": {
+    "mtime": 1793891838.7785084,
+    "seen": 1793913552.3030233,
+    "ast_hash": "ade6cf70c60975703e3692bbbfb28a14",
+    "semantic_hash": ""
+  },
+  "app/Providers/Filament/AdminPanelProvider.php": {
+    "mtime": 1793891838.7786303,
+    "seen": 1793913552.303024,
+    "ast_hash": "09e3da3b1a9433ccfff97bcd727b75d4",
+    "semantic_hash": ""
+  },
+  "app/Providers/RouteServiceProvider.php": {
+    "mtime": 1793891838.7786303,
+    "seen": 1793913552.303025,
+    "ast_hash": "1fa81abae51fb597f937c5b37717bba2",
+    "semantic_hash": ""
+  },
+  "app/Providers/WasteServiceProvider.php": {
+    "mtime": 1793891838.7786303,
+    "seen": 1793913552.3030257,
+    "ast_hash": "57c34966bdbeee438280fbcf09d6b4bd",
+    "semantic_hash": ""
+  },
+  "app/View/Components/_components.json": {
+    "mtime": 1793895197.6249928,
+    "seen": 1793913552.3030264,
+    "ast_hash": "d751713988987e9331980363e24189ce",
+    "semantic_hash": ""
+  },
+  "composer.json": {
+    "mtime": 1793891838.7786303,
+    "seen": 1793913552.3030274,
+    "ast_hash": "d35f101b895f0ce806f7cbdbdf8945c2",
+    "semantic_hash": ""
+  },
+  "config/config.php": {
+    "mtime": 1793913343.9696574,
+    "seen": 1793913552.303028,
+    "ast_hash": "89e2fb59ec4b1fdc2996a69bf7b80629",
+    "semantic_hash": ""
+  },
+  "database/factories/AuthorizedWasteFactory.php": {
+    "mtime": 1793891838.7786949,
+    "seen": 1793913552.3030293,
+    "ast_hash": "b78c2de9d3424636116fb84462ee05f6",
+    "semantic_hash": ""
+  },
+  "database/factories/EwcCodeFactory.php": {
+    "mtime": 1793891838.7787123,
+    "seen": 1793913552.30303,
+    "ast_hash": "849200c8dec9f4edd5e2eeaaa6674653",
+    "semantic_hash": ""
+  },
+  "database/factories/FirFactory.php": {
+    "mtime": 1793891838.7787123,
+    "seen": 1793913552.3030307,
+    "ast_hash": "3e135b3ad3ca7396cb16eda47478583d",
+    "semantic_hash": ""
+  },
+  "database/factories/OperatorFactory.php": {
+    "mtime": 1793891838.7787123,
+    "seen": 1793913552.3030314,
+    "ast_hash": "bd05f94b2adaf182206c2d72eb9fa342",
+    "semantic_hash": ""
+  },
+  "database/factories/OperatorSiteFactory.php": {
+    "mtime": 1793891838.7787123,
+    "seen": 1793913552.3030324,
+    "ast_hash": "94847681f6a94d534174517ccc792b1f",
+    "semantic_hash": ""
+  },
+  "database/factories/PlantAuthorizationFactory.php": {
+    "mtime": 1793891838.7787123,
+    "seen": 1793913552.303033,
+    "ast_hash": "94ddc9eec3ef951d0df71c89b40402e9",
+    "semantic_hash": ""
+  },
+  "database/factories/RegisterEntryFactory.php": {
+    "mtime": 1793891838.7787123,
+    "seen": 1793913552.3030338,
+    "ast_hash": "d118e11ae75614598c3d6b9dfd39a579",
+    "semantic_hash": ""
+  },
+  "database/factories/RegisterFactory.php": {
+    "mtime": 1793891838.7787123,
+    "seen": 1793913552.3030345,
+    "ast_hash": "af565fcdb631b46e17ff48a98c7b247f",
+    "semantic_hash": ""
+  },
+  "database/migrations/2026_11_04_000001_create_ewc_codes_table.php": {
+    "mtime": 1793891838.7787123,
+    "seen": 1793913552.3030357,
+    "ast_hash": "1c2469554851adbb7f6519c911aec842",
+    "semantic_hash": ""
+  },
+  "database/migrations/2026_11_04_000002_create_operators_table.php": {
+    "mtime": 1793910395.076921,
+    "seen": 1793913552.3030365,
+    "ast_hash": "7081f306f41f432ded61f86ba66037c8",
+    "semantic_hash": ""
+  },
+  "database/migrations/2026_11_04_000003_create_operator_sites_table.php": {
+    "mtime": 1793891838.7787826,
+    "seen": 1793913552.3030372,
+    "ast_hash": "536fd679b79b1bcbfda9687c4ba28521",
+    "semantic_hash": ""
+  },
+  "database/migrations/2026_11_04_000004_create_plant_authorizations_table.php": {
+    "mtime": 1793891838.7787826,
+    "seen": 1793913552.303038,
+    "ast_hash": "fb5558b1bd4132322154b16ecafa8c67",
+    "semantic_hash": ""
+  },
+  "database/migrations/2026_11_04_000005_create_authorized_wastes_table.php": {
+    "mtime": 1793891838.7787826,
+    "seen": 1793913552.3030388,
+    "ast_hash": "5c8d8d23a715b85544f350b29af2b523",
+    "semantic_hash": ""
+  },
+  "database/migrations/2026_11_04_000006_create_firs_table.php": {
+    "mtime": 1793891838.7787826,
+    "seen": 1793913552.3030396,
+    "ast_hash": "25b28e34f70daaaa32c6708126a4a328",
+    "semantic_hash": ""
+  },
+  "database/migrations/2026_11_04_000007_create_registers_table.php": {
+    "mtime": 1793891838.7787826,
+    "seen": 1793913552.3030403,
+    "ast_hash": "bec36ad7637d816d21a2dc88bdaa2e87",
+    "semantic_hash": ""
+  },
+  "database/migrations/2026_11_04_000008_create_register_entries_table.php": {
+    "mtime": 1793891838.7787826,
+    "seen": 1793913552.3030412,
+    "ast_hash": "7cee4511bebb56ca6c0e8c734e976632",
+    "semantic_hash": ""
+  },
+  "database/seeders/EwcCodeSeeder.php": {
+    "mtime": 1793891838.7787826,
+    "seen": 1793913552.303042,
+    "ast_hash": "58cb1123fc30912c06e6515531c10754",
+    "semantic_hash": ""
+  },
+  "database/seeders/OperatorSeeder.php": {
+    "mtime": 1793891838.778898,
+    "seen": 1793913552.303043,
+    "ast_hash": "134ce435a0481ab3e9fa1621226426ca",
+    "semantic_hash": ""
+  },
+  "database/seeders/PlantAuthorizationSeeder.php": {
+    "mtime": 1793891838.778898,
+    "seen": 1793913552.3030436,
+    "ast_hash": "e74962dcdad964ddf53fe4bfded39695",
+    "semantic_hash": ""
+  },
+  "database/seeders/RegisterSeeder.php": {
+    "mtime": 1793891838.778898,
+    "seen": 1793913552.3030443,
+    "ast_hash": "e316a96ee9462d6f1852104a8645a7cc",
+    "semantic_hash": ""
+  },
+  "database/seeders/WasteDatabaseSeeder.php": {
+    "mtime": 1793891838.778898,
+    "seen": 1793913552.3030453,
+    "ast_hash": "6b2c39d626069c77518d83622e9dc5c9",
+    "semantic_hash": ""
+  },
+  "lang/en/acceptance_enum.php": {
+    "mtime": 1793891838.7789967,
+    "seen": 1793913552.3030462,
+    "ast_hash": "3e5ae3bc57316a03f2a83c2878a2cff8",
+    "semantic_hash": ""
+  },
+  "lang/en/authorization_type_enum.php": {
+    "mtime": 1793891838.7790108,
+    "seen": 1793913552.303047,
+    "ast_hash": "89223441f4bf3468e8ecd71e7c886f54",
+    "semantic_hash": ""
+  },
+  "lang/en/authorized_waste.php": {
+    "mtime": 1793891838.7790108,
+    "seen": 1793913552.3030477,
+    "ast_hash": "dddf186058e1d9150ca3d370bfd1a0cd",
+    "semantic_hash": ""
+  },
+  "lang/en/authorized_wastes.php": {
+    "mtime": 1793891838.7790108,
+    "seen": 1793913552.3030486,
+    "ast_hash": "f015a36e01d7d66ced4aa4a3da39433c",
+    "semantic_hash": ""
+  },
+  "lang/en/ewc_code.php": {
+    "mtime": 1793891838.7790108,
+    "seen": 1793913552.3030496,
+    "ast_hash": "d034aa84a842270734b3de36c68972a9",
+    "semantic_hash": ""
+  },
+  "lang/en/ewc_code_form.php": {
+    "mtime": 1793891838.7790108,
+    "seen": 1793913552.3030503,
+    "ast_hash": "25c2989ef20146810caeb76977968965",
+    "semantic_hash": ""
+  },
+  "lang/en/ewc_code_infolist.php": {
+    "mtime": 1793891838.7790108,
+    "seen": 1793913552.303051,
+    "ast_hash": "186c8ddd7ad7fd24d28c29a8ce5e753c",
+    "semantic_hash": ""
+  },
+  "lang/en/ewc_codes.php": {
+    "mtime": 1793891838.7790108,
+    "seen": 1793913552.3030517,
+    "ast_hash": "73174109904db2cf8a3464509f51c2f5",
+    "semantic_hash": ""
+  },
+  "lang/en/exceptions.php": {
+    "mtime": 1793910274.464363,
+    "seen": 1793913552.3030524,
+    "ast_hash": "a5aded950f7e52c4c0feff02766f8cc1",
+    "semantic_hash": ""
+  },
+  "lang/en/fir.php": {
+    "mtime": 1793891838.7790108,
+    "seen": 1793913552.3030536,
+    "ast_hash": "9906fe2be4d93f49782ee1ade82d6faf",
+    "semantic_hash": ""
+  },
+  "lang/en/fir_form.php": {
+    "mtime": 1793891838.7790108,
+    "seen": 1793913552.3030543,
+    "ast_hash": "1923b203d90c00b924de428b949db350",
+    "semantic_hash": ""
+  },
+  "lang/en/fir_infolist.php": {
+    "mtime": 1793891838.7790108,
+    "seen": 1793913552.303055,
+    "ast_hash": "aaaa0e12707ba96edcc664b68f47f038",
+    "semantic_hash": ""
+  },
+  "lang/en/fir_status_enum.php": {
+    "mtime": 1793891838.7790108,
+    "seen": 1793913552.3030558,
+    "ast_hash": "a711b47d2c4df6fd73f1b0cb3be7ab6b",
+    "semantic_hash": ""
+  },
+  "lang/en/firs.php": {
+    "mtime": 1793891838.7790108,
+    "seen": 1793913552.3030567,
+    "ast_hash": "effbbe43cd37049d93a5fd2b3df9b845",
+    "semantic_hash": ""
+  },
+  "lang/en/hazard_property_enum.php": {
+    "mtime": 1793891838.7790108,
+    "seen": 1793913552.3030574,
+    "ast_hash": "e3f37904e6e9cbe27b598ecaa1ac218e",
+    "semantic_hash": ""
+  },
+  "lang/en/operator.php": {
+    "mtime": 1793910130.0990896,
+    "seen": 1793913552.3030581,
+    "ast_hash": "77024fe82bfff02023b9ab1a7a87dc87",
+    "semantic_hash": ""
+  },
+  "lang/en/operator_form.php": {
+    "mtime": 1793891838.7790108,
+    "seen": 1793913552.303059,
+    "ast_hash": "dcd35828b0769d9510bda4c43f535f0b",
+    "semantic_hash": ""
+  },
+  "lang/en/operator_infolist.php": {
+    "mtime": 1793891838.7790108,
+    "seen": 1793913552.30306,
+    "ast_hash": "b3f1ca402d8ffb2f9962f39c140deb84",
+    "semantic_hash": ""
+  },
+  "lang/en/operator_role_enum.php": {
+    "mtime": 1793891838.7790108,
+    "seen": 1793913552.3030608,
+    "ast_hash": "f774f03551c002821e0616237a15078c",
+    "semantic_hash": ""
+  },
+  "lang/en/operator_site.php": {
+    "mtime": 1793891838.7790108,
+    "seen": 1793913552.3030615,
+    "ast_hash": "14d94c240ae530d2e76bc20b55d41698",
+    "semantic_hash": ""
+  },
+  "lang/en/operator_site_form.php": {
+    "mtime": 1793891838.7790108,
+    "seen": 1793913552.3030622,
+    "ast_hash": "01e63632d6a32da8a4ea45dc4aa2bd8c",
+    "semantic_hash": ""
+  },
+  "lang/en/operator_site_infolist.php": {
+    "mtime": 1793891838.7790108,
+    "seen": 1793913552.3030632,
+    "ast_hash": "642126a5d21cf06e8a0be8f9b4034fd7",
+    "semantic_hash": ""
+  },
+  "lang/en/operator_sites.php": {
+    "mtime": 1793891838.7790108,
+    "seen": 1793913552.3030639,
+    "ast_hash": "a0b1184a1a7fbdf8aead1c60a9864355",
+    "semantic_hash": ""
+  },
+  "lang/en/operators.php": {
+    "mtime": 1793891838.7790108,
+    "seen": 1793913552.3030648,
+    "ast_hash": "f2f511c8f937cc5e5cf513bdde347757",
+    "semantic_hash": ""
+  },
+  "lang/en/physical_state_enum.php": {
+    "mtime": 1793891838.7790108,
+    "seen": 1793913552.3030655,
+    "ast_hash": "8f92861b1587266d0c48291b2f8bca98",
+    "semantic_hash": ""
+  },
+  "lang/en/plant_authorization.php": {
+    "mtime": 1793891838.7790108,
+    "seen": 1793913552.3030663,
+    "ast_hash": "e42e09e63eee87cb0b48078fd56ceee9",
+    "semantic_hash": ""
+  },
+  "lang/en/plant_authorization_form.php": {
+    "mtime": 1793891838.7790108,
+    "seen": 1793913552.3030672,
+    "ast_hash": "d57604fd5d5ee67b8ff9881f288fb459",
+    "semantic_hash": ""
+  },
+  "lang/en/plant_authorization_infolist.php": {
+    "mtime": 1793891838.7790108,
+    "seen": 1793913552.303068,
+    "ast_hash": "04c1f2d9470c0407e32a0cb4f5be9df8",
+    "semantic_hash": ""
+  },
+  "lang/en/plant_authorizations.php": {
+    "mtime": 1793891838.7790108,
+    "seen": 1793913552.3030686,
+    "ast_hash": "b49c8f6607857ad53e0460b548bce965",
+    "semantic_hash": ""
+  },
+  "lang/en/quantity_unit_enum.php": {
+    "mtime": 1793891838.7790108,
+    "seen": 1793913552.3030694,
+    "ast_hash": "2b7d43aa805df30081401406ba2d80a4",
+    "semantic_hash": ""
+  },
+  "lang/en/rectify_entry.php": {
+    "mtime": 1793891838.7790108,
+    "seen": 1793913552.3030703,
+    "ast_hash": "360c975762ed3fc1d9d9a1828976a363",
+    "semantic_hash": ""
+  },
+  "lang/en/register.php": {
+    "mtime": 1793891838.7790108,
+    "seen": 1793913552.303072,
+    "ast_hash": "65a2f7100dfe4fb844966d03ee01b6f1",
+    "semantic_hash": ""
+  },
+  "lang/en/register_cause_enum.php": {
+    "mtime": 1793891838.7790108,
+    "seen": 1793913552.3030727,
+    "ast_hash": "59c37c99a96cc46adb9ec34cc285ac58",
+    "semantic_hash": ""
+  },
+  "lang/en/register_entries.php": {
+    "mtime": 1793891838.7790108,
+    "seen": 1793913552.3030736,
+    "ast_hash": "e4a801616a98ba09dc721d5a4d608808",
+    "semantic_hash": ""
+  },
+  "lang/en/register_entry.php": {
+    "mtime": 1793891838.7790108,
+    "seen": 1793913552.3030746,
+    "ast_hash": "1a768f89ad12c8309152630ebbeb0131",
+    "semantic_hash": ""
+  },
+  "lang/en/register_entry_form.php": {
+    "mtime": 1793891838.7790108,
+    "seen": 1793913552.3030753,
+    "ast_hash": "a3db1cb043a278d16305f07816f28688",
+    "semantic_hash": ""
+  },
+  "lang/en/register_entry_infolist.php": {
+    "mtime": 1793891838.7790108,
+    "seen": 1793913552.303076,
+    "ast_hash": "cf5182d848684905f2d823cd2ce1ce62",
+    "semantic_hash": ""
+  },
+  "lang/en/register_entry_type_enum.php": {
+    "mtime": 1793891838.7790108,
+    "seen": 1793913552.303077,
+    "ast_hash": "7c830d50bdefa9a699d7dbd57b366012",
+    "semantic_hash": ""
+  },
+  "lang/en/register_form.php": {
+    "mtime": 1793891838.7790108,
+    "seen": 1793913552.3030777,
+    "ast_hash": "d0c97888e4ba9a8464b06ec6a28e1639",
+    "semantic_hash": ""
+  },
+  "lang/en/register_infolist.php": {
+    "mtime": 1793891838.7790108,
+    "seen": 1793913552.3030787,
+    "ast_hash": "ee124bb6230af08ccdbbfe2307fbf072",
+    "semantic_hash": ""
+  },
+  "lang/en/registers.php": {
+    "mtime": 1793891838.7790108,
+    "seen": 1793913552.3030794,
+    "ast_hash": "9aa60544333e5663b229427dc85e6e12",
+    "semantic_hash": ""
+  },
+  "lang/en/waste_operation_enum.php": {
+    "mtime": 1793891838.7790108,
+    "seen": 1793913552.3030806,
+    "ast_hash": "d851a689caa9dd76c05bc67210b8bc3d",
+    "semantic_hash": ""
+  },
+  "lang/it/acceptance_enum.php": {
+    "mtime": 1793891838.7790108,
+    "seen": 1793913552.3030813,
+    "ast_hash": "87021347c65f10fe050c5c696fb4e3d1",
+    "semantic_hash": ""
+  },
+  "lang/it/authorization_type_enum.php": {
+    "mtime": 1793891838.7795355,
+    "seen": 1793913552.303082,
+    "ast_hash": "82e6654ad4227a57210f65e43c1076c1",
+    "semantic_hash": ""
+  },
+  "lang/it/authorized_waste.php": {
+    "mtime": 1793891838.7795355,
+    "seen": 1793913552.3030827,
+    "ast_hash": "fc3444c505c154cc5ba0b1e684f16241",
+    "semantic_hash": ""
+  },
+  "lang/it/authorized_wastes.php": {
+    "mtime": 1793891838.7795355,
+    "seen": 1793913552.3030837,
+    "ast_hash": "f015a36e01d7d66ced4aa4a3da39433c",
+    "semantic_hash": ""
+  },
+  "lang/it/ewc_code.php": {
+    "mtime": 1793891838.7795355,
+    "seen": 1793913552.3030846,
+    "ast_hash": "d2891f91e0414e23bc2eb806ec06d505",
+    "semantic_hash": ""
+  },
+  "lang/it/ewc_code_form.php": {
+    "mtime": 1793891838.7795355,
+    "seen": 1793913552.3030853,
+    "ast_hash": "25c2989ef20146810caeb76977968965",
+    "semantic_hash": ""
+  },
+  "lang/it/ewc_code_infolist.php": {
+    "mtime": 1793891838.7795355,
+    "seen": 1793913552.303086,
+    "ast_hash": "186c8ddd7ad7fd24d28c29a8ce5e753c",
+    "semantic_hash": ""
+  },
+  "lang/it/ewc_codes.php": {
+    "mtime": 1793891838.7795355,
+    "seen": 1793913552.303087,
+    "ast_hash": "73174109904db2cf8a3464509f51c2f5",
+    "semantic_hash": ""
+  },
+  "lang/it/exceptions.php": {
+    "mtime": 1793910274.4717348,
+    "seen": 1793913552.303088,
+    "ast_hash": "1f8816657c32b5ca64539b2db648fba3",
+    "semantic_hash": ""
+  },
+  "lang/it/fir.php": {
+    "mtime": 1793891838.7795355,
+    "seen": 1793913552.3030887,
+    "ast_hash": "32b7e8cc5452ec7fe7bcd3044b25a023",
+    "semantic_hash": ""
+  },
+  "lang/it/fir_form.php": {
+    "mtime": 1793891838.7795355,
+    "seen": 1793913552.3030894,
+    "ast_hash": "1923b203d90c00b924de428b949db350",
+    "semantic_hash": ""
+  },
+  "lang/it/fir_infolist.php": {
+    "mtime": 1793891838.7795355,
+    "seen": 1793913552.30309,
+    "ast_hash": "aaaa0e12707ba96edcc664b68f47f038",
+    "semantic_hash": ""
+  },
+  "lang/it/fir_status_enum.php": {
+    "mtime": 1793891838.7795355,
+    "seen": 1793913552.3030913,
+    "ast_hash": "76bc8b7b6a2bc040aa173c1c373b5c08",
+    "semantic_hash": ""
+  },
+  "lang/it/firs.php": {
+    "mtime": 1793891838.7795355,
+    "seen": 1793913552.303092,
+    "ast_hash": "effbbe43cd37049d93a5fd2b3df9b845",
+    "semantic_hash": ""
+  },
+  "lang/it/hazard_property_enum.php": {
+    "mtime": 1793891838.7795355,
+    "seen": 1793913552.3030927,
+    "ast_hash": "2a364cb32225929b2da25b09be47e570",
+    "semantic_hash": ""
+  },
+  "lang/it/operator.php": {
+    "mtime": 1793910274.4618034,
+    "seen": 1793913552.3030937,
+    "ast_hash": "c9a2d3710f4ddb09f48f12cd506d83d1",
+    "semantic_hash": ""
+  },
+  "lang/it/operator_form.php": {
+    "mtime": 1793891838.7795355,
+    "seen": 1793913552.3030946,
+    "ast_hash": "dcd35828b0769d9510bda4c43f535f0b",
+    "semantic_hash": ""
+  },
+  "lang/it/operator_infolist.php": {
+    "mtime": 1793891838.7795355,
+    "seen": 1793913552.3030953,
+    "ast_hash": "b3f1ca402d8ffb2f9962f39c140deb84",
+    "semantic_hash": ""
+  },
+  "lang/it/operator_role_enum.php": {
+    "mtime": 1793891838.7795355,
+    "seen": 1793913552.303096,
+    "ast_hash": "95e053f08465a547939f7a77c6443db9",
+    "semantic_hash": ""
+  },
+  "lang/it/operator_site.php": {
+    "mtime": 1793891838.7795355,
+    "seen": 1793913552.303097,
+    "ast_hash": "b40f17bbe59cc42ad7f8960e89402352",
+    "semantic_hash": ""
+  },
+  "lang/it/operator_site_form.php": {
+    "mtime": 1793891838.7795355,
+    "seen": 1793913552.303098,
+    "ast_hash": "01e63632d6a32da8a4ea45dc4aa2bd8c",
+    "semantic_hash": ""
+  },
+  "lang/it/operator_site_infolist.php": {
+    "mtime": 1793891838.7795355,
+    "seen": 1793913552.303099,
+    "ast_hash": "642126a5d21cf06e8a0be8f9b4034fd7",
+    "semantic_hash": ""
+  },
+  "lang/it/operator_sites.php": {
+    "mtime": 1793891838.7795355,
+    "seen": 1793913552.3030999,
+    "ast_hash": "a0b1184a1a7fbdf8aead1c60a9864355",
+    "semantic_hash": ""
+  },
+  "lang/it/operators.php": {
+    "mtime": 1793891838.7795355,
+    "seen": 1793913552.3031006,
+    "ast_hash": "f2f511c8f937cc5e5cf513bdde347757",
+    "semantic_hash": ""
+  },
+  "lang/it/physical_state_enum.php": {
+    "mtime": 1793891838.7795355,
+    "seen": 1793913552.3031018,
+    "ast_hash": "f2a130caf58a4d40d1b9aa95bad39ee3",
+    "semantic_hash": ""
+  },
+  "lang/it/plant_authorization.php": {
+    "mtime": 1793891838.7795355,
+    "seen": 1793913552.3031025,
+    "ast_hash": "7672dc1d95ef3c60b113dbf2c08dd381",
+    "semantic_hash": ""
+  },
+  "lang/it/plant_authorization_form.php": {
+    "mtime": 1793891838.7795355,
+    "seen": 1793913552.3031032,
+    "ast_hash": "d57604fd5d5ee67b8ff9881f288fb459",
+    "semantic_hash": ""
+  },
+  "lang/it/plant_authorization_infolist.php": {
+    "mtime": 1793891838.7795355,
+    "seen": 1793913552.3031042,
+    "ast_hash": "04c1f2d9470c0407e32a0cb4f5be9df8",
+    "semantic_hash": ""
+  },
+  "lang/it/plant_authorizations.php": {
+    "mtime": 1793891838.7795355,
+    "seen": 1793913552.303105,
+    "ast_hash": "b49c8f6607857ad53e0460b548bce965",
+    "semantic_hash": ""
+  },
+  "lang/it/quantity_unit_enum.php": {
+    "mtime": 1793891838.7795355,
+    "seen": 1793913552.3031058,
+    "ast_hash": "b1156daa68efd643844a00a03cc18012",
+    "semantic_hash": ""
+  },
+  "lang/it/rectify_entry.php": {
+    "mtime": 1793891838.7795355,
+    "seen": 1793913552.3031068,
+    "ast_hash": "360c975762ed3fc1d9d9a1828976a363",
+    "semantic_hash": ""
+  },
+  "lang/it/register.php": {
+    "mtime": 1793891838.7795355,
+    "seen": 1793913552.3031075,
+    "ast_hash": "4129c02b2c7d296698d2bb2ac7b88aa0",
+    "semantic_hash": ""
+  },
+  "lang/it/register_cause_enum.php": {
+    "mtime": 1793891838.7795355,
+    "seen": 1793913552.3031085,
+    "ast_hash": "b5b30a94321c2be26a1744010513f409",
+    "semantic_hash": ""
+  },
+  "lang/it/register_entries.php": {
+    "mtime": 1793891838.7795355,
+    "seen": 1793913552.3031092,
+    "ast_hash": "e4a801616a98ba09dc721d5a4d608808",
+    "semantic_hash": ""
+  },
+  "lang/it/register_entry.php": {
+    "mtime": 1793891838.7795355,
+    "seen": 1793913552.3031101,
+    "ast_hash": "2ef76d811999ceb941a6e76fad260a0f",
+    "semantic_hash": ""
+  },
+  "lang/it/register_entry_form.php": {
+    "mtime": 1793891838.7795355,
+    "seen": 1793913552.3031108,
+    "ast_hash": "a3db1cb043a278d16305f07816f28688",
+    "semantic_hash": ""
+  },
+  "lang/it/register_entry_infolist.php": {
+    "mtime": 1793891838.7795355,
+    "seen": 1793913552.3031118,
+    "ast_hash": "cf5182d848684905f2d823cd2ce1ce62",
+    "semantic_hash": ""
+  },
+  "lang/it/register_entry_type_enum.php": {
+    "mtime": 1793891838.7795355,
+    "seen": 1793913552.3031127,
+    "ast_hash": "23f177bb270378a67de95923d8881e7e",
+    "semantic_hash": ""
+  },
+  "lang/it/register_form.php": {
+    "mtime": 1793891838.7795355,
+    "seen": 1793913552.3031135,
+    "ast_hash": "d0c97888e4ba9a8464b06ec6a28e1639",
+    "semantic_hash": ""
+  },
+  "lang/it/register_infolist.php": {
+    "mtime": 1793891838.7795355,
+    "seen": 1793913552.3031142,
+    "ast_hash": "ee124bb6230af08ccdbbfe2307fbf072",
+    "semantic_hash": ""
+  },
+  "lang/it/registers.php": {
+    "mtime": 1793891838.7795355,
+    "seen": 1793913552.3031154,
+    "ast_hash": "9aa60544333e5663b229427dc85e6e12",
+    "semantic_hash": ""
+  },
+  "lang/it/waste_operation_enum.php": {
+    "mtime": 1793891838.7795355,
+    "seen": 1793913552.303116,
+    "ast_hash": "ecd68ebcc76aedc584f9a0ec9af5d713",
+    "semantic_hash": ""
+  },
+  "module.json": {
+    "mtime": 1793891838.7795355,
+    "seen": 1793913552.303117,
+    "ast_hash": "7d8a4b90656f9f5c9eb5273f6ef3cd0f",
+    "semantic_hash": ""
+  },
+  "routes/api.php": {
+    "mtime": 1793891838.7795355,
+    "seen": 1793913552.3031178,
+    "ast_hash": "609caa36c4885e92549c67962e326d26",
+    "semantic_hash": ""
+  },
+  "routes/web.php": {
+    "mtime": 1793891838.779896,
+    "seen": 1793913552.3031187,
+    "ast_hash": "9451e8106c8615c7d9183a95b3294d9d",
+    "semantic_hash": ""
+  },
+  "tests/Feature/AuthorizedWasteActionsTest.php": {
+    "mtime": 1793913343.9696574,
+    "seen": 1793913552.3031197,
+    "ast_hash": "dc9833ff000179d2412999aafb5dd46c",
+    "semantic_hash": ""
+  },
+  "tests/Feature/ConcurrentRegisterNumberingTest.php": {
+    "mtime": 1793913437.3385408,
+    "seen": 1793913552.3031204,
+    "ast_hash": "4ccec99d8cd1ea1ff86bee42bca89c1f",
+    "semantic_hash": ""
+  },
+  "tests/Feature/FirActionsTest.php": {
+    "mtime": 1793913374.4562929,
+    "seen": 1793913552.303121,
+    "ast_hash": "bb1428663686b3422926ed6b4896c424",
+    "semantic_hash": ""
+  },
+  "tests/Feature/FirImmutabilityTest.php": {
+    "mtime": 1793908906.566896,
+    "seen": 1793913552.3031223,
+    "ast_hash": "886642ce39c299f2cd1afbd3441eda4b",
+    "semantic_hash": ""
+  },
+  "tests/Feature/ImportEwcCodesFromCsvActionTest.php": {
+    "mtime": 1793913437.3405743,
+    "seen": 1793913552.303123,
+    "ast_hash": "973d2f7129381ab7cd58f00e46d28622",
+    "semantic_hash": ""
+  },
+  "tests/Feature/PostRegisterEntryActionTest.php": {
+    "mtime": 1793891838.7799377,
+    "seen": 1793913552.303124,
+    "ast_hash": "55bc7be4d8c477175d4b6fb59b470d44",
+    "semantic_hash": ""
+  },
+  "tests/Feature/RegisterEntryImmutabilityAndRectificationTest.php": {
+    "mtime": 1793913343.9806573,
+    "seen": 1793913552.3031247,
+    "ast_hash": "ba72194a7d41643f6cace067a048cf3c",
+    "semantic_hash": ""
+  },
+  "tests/Pest.php": {
+    "mtime": 1793891838.7799377,
+    "seen": 1793913552.3031259,
+    "ast_hash": "f6431e07b8f4fd657b31f8391868bf3c",
+    "semantic_hash": ""
+  },
+  "tests/Support/WasteFixtures.php": {
+    "mtime": 1793913343.9806573,
+    "seen": 1793913552.3031266,
+    "ast_hash": "4f5a9daef83dda0c9d4024ba8780e6d6",
+    "semantic_hash": ""
+  },
+  "tests/TestCase.php": {
+    "mtime": 1793891838.7799377,
+    "seen": 1793913552.3031275,
+    "ast_hash": "7d7d73b287578d18d149f4fa9380adb3",
+    "semantic_hash": ""
+  },
+  "tests/Unit/Enums/FirStatusEnumTest.php": {
+    "mtime": 1793891838.7800963,
+    "seen": 1793913552.3031282,
+    "ast_hash": "0e6a6b5bc660b3159b83dcc25a41304b",
+    "semantic_hash": ""
+  },
+  "tests/Unit/Enums/RegisterCauseEnumTest.php": {
+    "mtime": 1793891838.780114,
+    "seen": 1793913552.3031292,
+    "ast_hash": "72c89f5aeec28ff3116a3c8bfc181835",
+    "semantic_hash": ""
+  },
+  "tests/Unit/Enums/WasteOperationEnumTest.php": {
+    "mtime": 1793891838.780114,
+    "seen": 1793913552.30313,
+    "ast_hash": "326fad960acc81baf4a9a9083aa5a8fd",
+    "semantic_hash": ""
+  },
+  "tests/Unit/NormalizeEwcCodeActionTest.php": {
+    "mtime": 1793891838.780114,
+    "seen": 1793913552.3031306,
+    "ast_hash": "f46977a30f5b281360da432df42b34e6",
+    "semantic_hash": ""
+  },
+  "docs/README.md": {
+    "mtime": 1793911058.8159838,
+    "seen": 1793913552.3031316,
+    "ast_hash": "83212d9c86d1e0dbc6546509802129f4",
+    "semantic_hash": ""
+  },
+  "docs/stories/authorization-valid-on-operation-date.story.md": {
+    "mtime": 1793908906.565721,
+    "seen": 1793913552.3031325,
+    "ast_hash": "cf1f08c11b176232b4dcdab554729ef0",
+    "semantic_hash": ""
+  },
+  "docs/stories/fir-immutable-after-draft.story.md": {
+    "mtime": 1793908906.566896,
+    "seen": 1793913552.3031332,
+    "ast_hash": "3e7e2f62a290e6511b5af9c9a050d483",
+    "semantic_hash": ""
+  },
+  "docs/stories/phpstan-type-safety.story.md": {
+    "mtime": 1793913523.4507742,
+    "seen": 1793913552.3031342,
+    "ast_hash": "68c1676557d53f6b0004bef5e6818fb9",
+    "semantic_hash": ""
+  }
+}

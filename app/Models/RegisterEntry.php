@@ -202,8 +202,12 @@ class RegisterEntry extends BaseModel
     protected static function booted(): void
     {
         static::updating(static function (RegisterEntry $entry): void {
-            $year = (int) $entry->getOriginal('year');
-            $number = (int) $entry->getOriginal('number');
+            $year = $entry->getOriginal('year');
+            $number = $entry->getOriginal('number');
+
+            if (! is_int($year) || ! is_int($number)) {
+                throw new \LogicException('Register entry numbering must be integers.');
+            }
 
             if ($entry->getOriginal('transmitted_at') !== null) {
                 throw ImmutableRegisterEntryException::transmitted($year, $number);

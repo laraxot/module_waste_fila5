@@ -14,6 +14,14 @@ use Modules\Waste\Tests\Support\WasteFixtures;
 use Modules\Waste\Tests\TestCase;
 use PHPUnit\Framework\Assert;
 
+use function Safe\file_get_contents;
+use function Safe\file_put_contents;
+use function Safe\getmypid;
+use function Safe\glob;
+use function Safe\posix_kill;
+use function Safe\touch;
+use function Safe\unlink;
+
 uses(TestCase::class);
 
 /**
@@ -120,8 +128,10 @@ test('concurrent processes posting on the same register get unique consecutive n
         DB::purge('waste');
         config(['database.connections.waste' => $originalConfig]);
         swapResolvedConnection('waste', $originalConnection);
-        foreach (glob($file.'*') ?: [] as $path) {
-            @unlink($path);
+        foreach (glob($file.'*') as $path) {
+            if (is_string($path) && is_file($path)) {
+                unlink($path);
+            }
         }
     }
 });

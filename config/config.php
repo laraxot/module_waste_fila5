@@ -22,7 +22,7 @@ return [
          * Tentativi della transazione di scrittura sul registro in caso di deadlock / "database is locked"
          * o di collisione sul vincolo unique (register_id, year, number). Dipende dal carico del DB.
          */
-        'transaction_attempts' => (int) env('WASTE_REGISTER_TRANSACTION_ATTEMPTS', 5),
+        'transaction_attempts' => (int) (getenv('WASTE_REGISTER_TRANSACTION_ATTEMPTS') ?: 5),
     ],
 
     'authorization_document' => [
@@ -30,7 +30,7 @@ return [
          * Disco medialibrary per gli atti autorizzativi (null = disco di default di medialibrary).
          * Gli atti sono documenti riservati: in produzione usare un disco privato.
          */
-        'disk' => env('WASTE_AUTHORIZATION_DOCUMENT_DISK'),
+        'disk' => getenv('WASTE_AUTHORIZATION_DOCUMENT_DISK') ?: null,
         /*
          * Tipi MIME accettati: PDF e file firmati CAdES (.p7m), formato usuale degli atti della PA.
          */

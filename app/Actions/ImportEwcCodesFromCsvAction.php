@@ -10,6 +10,12 @@ use Modules\Waste\Exceptions\InvalidEwcCodeException;
 use Modules\Waste\Models\EwcCode;
 use Spatie\QueueableAction\QueueableAction;
 
+use function Safe\fclose;
+use function Safe\fgetcsv;
+use function Safe\fopen;
+use function Safe\mb_convert_encoding;
+use function Safe\preg_replace;
+
 /**
  * Importa (o aggiorna) il catalogo EER da un CSV con separatore `;` e colonne
  * `code;description;is_hazardous;is_mirror`. La riga di intestazione è facoltativa.
@@ -39,9 +45,6 @@ class ImportEwcCodesFromCsvAction
         }
 
         $handle = fopen($path, 'rb');
-        if ($handle === false) {
-            throw EwcCsvImportException::unreadable($path);
-        }
 
         try {
             return DB::connection((new EwcCode)->getConnectionName())
@@ -50,7 +53,10 @@ class ImportEwcCodesFromCsvAction
                     $line = 0;
                     while (($row = fgetcsv($handle, null, ';', '"', '')) !== false) {
                         $line++;
-                        $cells = array_map(fn (?string $cell): string => $this->utf8(trim((string) $cell)), $row);
+                        $cells = [];
+                        foreach ($row as $cell) {
+                            $cells[] = $this->utf8(is_string($cell) ? trim($cell) : '');
+                        }
                         if ($line === 1) {
                             $cells[0] = (string) preg_replace('/^\xEF\xBB\xBF/', '', $cells[0] ?? '');
                             if (mb_strtolower($cells[0]) === 'code') {
