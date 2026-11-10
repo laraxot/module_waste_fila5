@@ -37,6 +37,10 @@ Le FK sono colonne indicizzate senza vincolo (moduli su connessioni diverse). Qu
 
 ### Integrità del registro
 
+Indice `register_entries (ewc_code_id, type, operation_at)` per l'utilizzo annuo dei codici autorizzati
+(`GetAuthorizedQuantityUsageAction`), aggiunto con `ensureIndexes()` (migrazione
+`2026_11_06_000009_add_query_supporting_indexes`, idempotente, audit database R14).
+
 - **Numerazione**: `AppendRegisterEntryAction` (unico scrittore) blocca la riga del registro con `lockForUpdate`
   in transazione, calcola `max(number)+1` per (registro, anno di `recorded_at`), salva. Vincolo unique
   `(register_id, year, number)` come ultima difesa, retry su collisione o deadlock (`waste.register.transaction_attempts`).

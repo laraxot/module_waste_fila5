@@ -53,12 +53,14 @@ class ImportEwcCodesFromCsvAction
                     $line = 0;
                     while (($row = fgetcsv($handle, null, ';', '"', '')) !== false) {
                         $line++;
+                        /** @var array<int, string> $cells */
                         $cells = [];
                         foreach ($row as $cell) {
                             $cells[] = $this->utf8(is_string($cell) ? trim($cell) : '');
                         }
                         if ($line === 1) {
-                            $cells[0] = (string) preg_replace('/^\xEF\xBB\xBF/', '', $cells[0] ?? '');
+                            $first = preg_replace('/^\xEF\xBB\xBF/', '', $cells[0] ?? '');
+                            $cells[0] = is_string($first) ? $first : '';
                             if (mb_strtolower($cells[0]) === 'code') {
                                 continue;
                             }

@@ -24,7 +24,7 @@ test('authorization documents default to the private local disk, never public', 
 test('the module default configuration is the private disk', function (): void {
     $config = require dirname(__DIR__, 2).'/config/config.php';
 
-    Assert::assertNotSame('public', $config['authorization_document']['disk']);
+    Assert::assertSame('local', data_get($config, 'authorization_document.disk'));
 });
 
 test('a configured disk is respected', function (): void {

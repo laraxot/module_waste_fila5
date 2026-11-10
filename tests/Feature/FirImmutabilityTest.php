@@ -57,8 +57,14 @@ describe('FIR emesso', function (): void {
         'producer' => ['producer_operator_id', 999999],
         'plate' => ['vehicle_plate', 'ZZ999ZZ'],
         'notes' => ['notes', 'ritocco'],
-        'digital flag back to paper' => ['is_digital', false],
     ])->throws(ImmutableFirException::class);
+
+    test('a digital form cannot go back to paper', function (): void {
+        $fir = issuedFir();
+        $fir->forceFill(['is_digital' => true])->save();
+
+        $fir->update(['is_digital' => false]);
+    })->throws(ImmutableFirException::class);
 
     test('acceptance fields change only together with an acceptance outcome', function (): void {
         $fir = issuedFir();
