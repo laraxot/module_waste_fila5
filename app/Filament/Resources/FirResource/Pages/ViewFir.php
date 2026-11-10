@@ -40,7 +40,7 @@ class ViewFir extends XotBaseViewRecord
     {
         return [
             ...parent::getHeaderActions(),
-            'edit' => EditAction::make(),
+            'edit' => EditAction::make()->visible(fn (): bool => FirResource::canEdit($this->getRecord())),
             'change_status' => Action::make('change_status')
                 ->icon('heroicon-o-arrow-path')
                 ->authorize('changeStatus')

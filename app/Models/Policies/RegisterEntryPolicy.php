@@ -8,6 +8,7 @@ use Modules\User\Models\Policies\UserBasePolicy;
 use Modules\Waste\Models\RegisterEntry;
 use Modules\Xot\Contracts\UserContract;
 use Modules\Xot\Models\Policies\Concerns\DeniesUndeclaredFilamentAbilities;
+use Modules\Xot\Models\Policies\Concerns\RequiresOperationalPermissions;
 
 /**
  * Il registro è un log cronologico: le scritture si creano solo con le Actions di dominio,
@@ -16,6 +17,7 @@ use Modules\Xot\Models\Policies\Concerns\DeniesUndeclaredFilamentAbilities;
 class RegisterEntryPolicy extends UserBasePolicy
 {
     use DeniesUndeclaredFilamentAbilities;
+    use RequiresOperationalPermissions;
 
     public function viewAny(UserContract $user): bool
     {

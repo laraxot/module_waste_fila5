@@ -9,6 +9,7 @@ use Modules\Waste\Enums\FirStatusEnum;
 use Modules\Waste\Models\Fir;
 use Modules\Xot\Contracts\UserContract;
 use Modules\Xot\Models\Policies\Concerns\DeniesUndeclaredFilamentAbilities;
+use Modules\Xot\Models\Policies\Concerns\RequiresOperationalPermissions;
 
 /**
  * Un FIR si modifica a mano solo in bozza: dopo l'emissione cambiano solo stato e accettazione,
@@ -17,6 +18,7 @@ use Modules\Xot\Models\Policies\Concerns\DeniesUndeclaredFilamentAbilities;
 class FirPolicy extends UserBasePolicy
 {
     use DeniesUndeclaredFilamentAbilities;
+    use RequiresOperationalPermissions;
 
     public function viewAny(UserContract $user): bool
     {

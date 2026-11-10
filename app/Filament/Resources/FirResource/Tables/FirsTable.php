@@ -16,6 +16,8 @@ use Filament\Tables\Filters\BaseFilter;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Filters\TernaryFilter;
 use Modules\Waste\Enums\FirStatusEnum;
+use Modules\Waste\Filament\Resources\FirResource;
+use Modules\Waste\Models\Fir;
 use Modules\Xot\Filament\Resources\Tables\XotBaseResourceTable;
 
 /**
@@ -72,7 +74,9 @@ class FirsTable extends XotBaseResourceTable
     {
         return [
             'view' => ViewAction::make(),
-            'edit' => EditAction::make(),
+            // Solo le bozze sono modificabili (anche per il super-admin, che la policy lascerebbe passare):
+            // il pulsante non deve portare a una pagina 403.
+            'edit' => EditAction::make()->visible(static fn (Fir $record): bool => FirResource::canEdit($record)),
         ];
     }
 
