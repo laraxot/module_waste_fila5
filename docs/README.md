@@ -175,3 +175,10 @@ autorizzata, titolo inattivo), utilizzo dell'autorizzazione annuo/istantaneo, FI
 del FIR dopo la bozza (`FirImmutabilityTest`).
 
 Storie: [`docs/stories/`](stories/).
+
+## Migrazioni
+
+Le migrazioni di `firs`, `registers`, `register_entries` hanno un `down()` che rifiuta il rollback: sono dati legali o di tracciabilità e non si
+cancellano con `migrate:rollback` (audit database R15). Unique e soft delete: decisioni nella story
+[`legal-tables-migrations`](stories/legal-tables-migrations.story.md) del modulo Waste.
+
