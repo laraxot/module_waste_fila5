@@ -6,9 +6,12 @@ namespace Modules\Waste\Models\Policies;
 
 use Modules\User\Models\Policies\UserBasePolicy;
 use Modules\Xot\Contracts\UserContract;
+use Modules\Xot\Models\Policies\Concerns\DeniesUndeclaredFilamentAbilities;
 
 class EwcCodePolicy extends UserBasePolicy
 {
+    use DeniesUndeclaredFilamentAbilities;
+
     public function viewAny(UserContract $user): bool
     {
         return $user->hasPermissionTo('ewc_code.viewAny');
@@ -27,6 +30,12 @@ class EwcCodePolicy extends UserBasePolicy
     public function update(UserContract $user): bool
     {
         return $user->hasPermissionTo('ewc_code.update');
+    }
+
+    /** Import del catalogo EER da CSV (crea e aggiorna codici, compreso `is_hazardous`). */
+    public function import(UserContract $user): bool
+    {
+        return $user->hasPermissionTo('ewc_code.import');
     }
 
     public function delete(UserContract $user): bool

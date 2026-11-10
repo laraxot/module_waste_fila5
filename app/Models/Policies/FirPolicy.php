@@ -8,6 +8,7 @@ use Modules\User\Models\Policies\UserBasePolicy;
 use Modules\Waste\Enums\FirStatusEnum;
 use Modules\Waste\Models\Fir;
 use Modules\Xot\Contracts\UserContract;
+use Modules\Xot\Models\Policies\Concerns\DeniesUndeclaredFilamentAbilities;
 
 /**
  * Un FIR si modifica a mano solo in bozza: dopo l'emissione cambiano solo stato e accettazione,
@@ -15,6 +16,8 @@ use Modules\Xot\Contracts\UserContract;
  */
 class FirPolicy extends UserBasePolicy
 {
+    use DeniesUndeclaredFilamentAbilities;
+
     public function viewAny(UserContract $user): bool
     {
         return $user->hasPermissionTo('fir.viewAny');
@@ -38,6 +41,13 @@ class FirPolicy extends UserBasePolicy
     public function changeStatus(UserContract $user, Fir $fir): bool
     {
         return ! $fir->status->isFinal() && $user->hasPermissionTo('fir.change_status');
+    }
+
+    /** Registrazione dell'esito dell'accettazione a destino (quantità accettata, motivazione). */
+    public function recordAcceptance(UserContract $user, Fir $fir): bool
+    {
+        return \in_array($fir->status, [FirStatusEnum::ISSUED, FirStatusEnum::IN_TRANSIT, FirStatusEnum::DELIVERED], true)
+            && $user->hasPermissionTo('fir.record_acceptance');
     }
 
     public function delete(UserContract $user): bool

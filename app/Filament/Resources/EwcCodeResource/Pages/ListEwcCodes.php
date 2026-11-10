@@ -9,10 +9,12 @@ use Filament\Actions\ActionGroup;
 use Filament\Forms\Components\FileUpload;
 use Filament\Notifications\Notification;
 use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Storage;
 use Modules\Waste\Actions\ImportEwcCodesFromCsvAction;
 use Modules\Waste\Exceptions\WasteDomainException;
 use Modules\Waste\Filament\Resources\EwcCodeResource;
+use Modules\Waste\Models\EwcCode;
 use Modules\Xot\Filament\Resources\Pages\XotBaseListRecords;
 
 class ListEwcCodes extends XotBaseListRecords
@@ -32,6 +34,7 @@ class ListEwcCodes extends XotBaseListRecords
             ...parent::getHeaderActions(),
             'import_csv' => Action::make('import_csv')
                 ->icon('heroicon-o-arrow-up-tray')
+                ->authorize('import')
                 ->schema([
                     'file' => FileUpload::make('file')
                         ->required()
@@ -40,6 +43,7 @@ class ListEwcCodes extends XotBaseListRecords
                         ->acceptedFileTypes(['text/csv', 'text/plain', 'application/csv', 'application/vnd.ms-excel']),
                 ])
                 ->action(static function (array $data) use ($disk): void {
+                    Gate::authorize('import', EwcCode::class);
                     $file = $data['file'] ?? null;
                     if (! is_string($file)) {
                         return;

@@ -14,6 +14,7 @@ use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Notifications\Notification;
 use Filament\Schemas\Components\Utilities\Get;
+use Illuminate\Support\Facades\Gate;
 use Modules\Waste\Actions\ChangeFirStatusAction;
 use Modules\Waste\Actions\RecordFirAcceptanceAction;
 use Modules\Waste\Enums\AcceptanceEnum;
@@ -49,6 +50,7 @@ class ViewFir extends XotBaseViewRecord
                         ->required(),
                 ])
                 ->action(function (array $data): void {
+                    Gate::authorize('changeStatus', $this->getFir());
                     $status = FirStatusEnum::tryFrom(is_string($data['status'] ?? null) ? $data['status'] : '');
                     if ($status === null) {
                         return;
@@ -58,8 +60,7 @@ class ViewFir extends XotBaseViewRecord
                 }),
             'record_acceptance' => Action::make('record_acceptance')
                 ->icon('heroicon-o-check-circle')
-                ->authorize('changeStatus')
-                ->visible(fn (): bool => in_array($this->getFir()->status, [FirStatusEnum::ISSUED, FirStatusEnum::IN_TRANSIT, FirStatusEnum::DELIVERED], true))
+                ->authorize('recordAcceptance')
                 ->schema([
                     'acceptance' => Select::make('acceptance')
                         ->options(AcceptanceEnum::class)
@@ -72,6 +73,7 @@ class ViewFir extends XotBaseViewRecord
                         ->required(static fn (Get $get): bool => AcceptanceEnum::tryFrom(self::stringOf($get('acceptance')))?->requiresReason() ?? false),
                 ])
                 ->action(function (array $data): void {
+                    Gate::authorize('recordAcceptance', $this->getFir());
                     $acceptance = AcceptanceEnum::tryFrom(self::stringOf($data['acceptance'] ?? null));
                     $acceptedKg = $data['accepted_kg'] ?? null;
                     $arrivedAt = $data['arrived_at'] ?? null;

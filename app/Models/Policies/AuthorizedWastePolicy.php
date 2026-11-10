@@ -6,9 +6,12 @@ namespace Modules\Waste\Models\Policies;
 
 use Modules\User\Models\Policies\UserBasePolicy;
 use Modules\Xot\Contracts\UserContract;
+use Modules\Xot\Models\Policies\Concerns\DeniesUndeclaredFilamentAbilities;
 
 class AuthorizedWastePolicy extends UserBasePolicy
 {
+    use DeniesUndeclaredFilamentAbilities;
+
     public function viewAny(UserContract $user): bool
     {
         return $user->hasPermissionTo('authorized_waste.viewAny');

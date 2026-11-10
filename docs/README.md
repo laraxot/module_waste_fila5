@@ -182,3 +182,14 @@ Le migrazioni di `firs`, `registers`, `register_entries` hanno un `down()` che r
 cancellano con `migrate:rollback` (audit database R15). Unique e soft delete: decisioni nella story
 [`legal-tables-migrations`](stories/legal-tables-migrations.story.md) del modulo Waste.
 
+## Permessi
+
+Policy con `DeniesUndeclaredFilamentAbilities`; permessi creati da `WastePermissionSeeder` (idempotente, chiamato da
+`WasteDatabaseSeeder`). Azioni con abilità dedicata:
+
+| Bottone | Abilità | Permesso |
+|---|---|---|
+| FIR: cambia stato | `changeStatus` | `fir.change_status` |
+| FIR: registra accettazione | `recordAcceptance` | `fir.record_acceptance` |
+| Codici EER: importa CSV | `import` | `ewc_code.import` |
+| Registro: rettifica | `rectify` | `register_entry.rectify` |

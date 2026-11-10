@@ -16,6 +16,7 @@ class WasteDatabaseSeeder extends Seeder
         $this->command?->info('WasteDatabaseSeeder: codici EER e dati demo…');
 
         $this->call([
+            WastePermissionSeeder::class,
             EwcCodeSeeder::class,
             OperatorSeeder::class,
             PlantAuthorizationSeeder::class,
