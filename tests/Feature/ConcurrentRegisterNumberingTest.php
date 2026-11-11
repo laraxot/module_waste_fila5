@@ -48,6 +48,42 @@ function swapResolvedConnection(string $name, ?Connection $connection): ?Connect
     return $previous;
 }
 
+/**
+ * Connessione del test: file sqlite dedicato, oppure MariaDB/MySQL se `WASTE_CONCURRENCY_DRIVER` vale
+ * `mariadb` o `mysql` (job CI dedicato). Su MariaDB/MySQL `lockForUpdate` blocca davvero la riga del registro:
+ * e' il caso che sqlite non puo' provare (rischio R4 del rapporto finale).
+ *
+ * @return array<string, mixed>
+ */
+function concurrencyConnectionConfig(string $sqliteFile): array
+{
+    $driver = getenv('WASTE_CONCURRENCY_DRIVER');
+    if ($driver === 'mariadb' || $driver === 'mysql') {
+        $value = static fn (string $name, string $default): string => \is_string(getenv($name)) && getenv($name) !== '' ? (string) getenv($name) : $default;
+
+        return [
+            'driver' => $driver,
+            'host' => $value('WASTE_CONCURRENCY_HOST', '127.0.0.1'),
+            'port' => $value('WASTE_CONCURRENCY_PORT', '3306'),
+            'database' => $value('WASTE_CONCURRENCY_DATABASE', 'waste_concurrency'),
+            'username' => $value('WASTE_CONCURRENCY_USERNAME', 'root'),
+            'password' => $value('WASTE_CONCURRENCY_PASSWORD', ''),
+            'charset' => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
+            'prefix' => '',
+            'strict' => true,
+        ];
+    }
+
+    return [
+        'driver' => 'sqlite',
+        'database' => $sqliteFile,
+        'prefix' => '',
+        'foreign_key_constraints' => false,
+        'busy_timeout' => 15000,
+    ];
+}
+
 /*
  * Concorrenza reale: N processi figli (pcntl_fork) annotano scritture sullo stesso registro, ognuno con la propria
  * connessione a un file sqlite dedicato (fuori dalla transazione di test). Atteso: numeri 1..N*M senza buchi né
@@ -66,13 +102,7 @@ test('concurrent processes posting on the same register get unique consecutive n
 
     $originalConfig = config('database.connections.waste');
     config([
-        'database.connections.waste' => [
-            'driver' => 'sqlite',
-            'database' => $file,
-            'prefix' => '',
-            'foreign_key_constraints' => false,
-            'busy_timeout' => 15000,
-        ],
+        'database.connections.waste' => concurrencyConnectionConfig($file),
         'waste.register.transaction_attempts' => 100,
     ]);
     $originalConnection = swapResolvedConnection('waste', null);
