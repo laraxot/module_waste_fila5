@@ -56,6 +56,11 @@ return [
         'not_allowed' => 'Il formulario non può passare dallo stato ":from" allo stato ":to".',
         'acceptance_requires_data' => 'Lo stato ":to" si registra con l\'accettazione a destino, indicando la quantità accettata.',
         'invalid_initial_status' => 'Un formulario non può essere creato nello stato ":status".',
+        'not_ready_for_transport' => 'Il formulario cartaceo non si può emettere senza :fields: completali con «Modifica» mentre è in bozza.',
+        'fields' => [
+            'number' => 'numero del formulario',
+            'transporter_operator_id' => 'trasportatore',
+        ],
     ],
     'invalid_fir' => [
         'operator_not_found' => 'Soggetto #:id inesistente.',

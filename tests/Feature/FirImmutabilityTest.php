@@ -21,11 +21,11 @@ function immutableFir(FirStatusEnum $status = FirStatusEnum::DRAFT): Fir
     return FirFactory::new()->status($status)->createOne();
 }
 
-/** FIR emesso senza numero: il numero lo assegna RENTRI (o l'operatore per il cartaceo). */
+/** FIR digitale emesso senza numero: il numero lo assegna RENTRI dopo. */
 function issuedFir(): Fir
 {
     $draft = immutableFir();
-    $draft->update(['number' => null]);
+    $draft->update(['number' => null, 'is_digital' => true]);
 
     return app(ChangeFirStatusAction::class)->execute($draft, FirStatusEnum::ISSUED);
 }
@@ -128,5 +128,26 @@ describe('FirStatusEnum::canReach', function (): void {
         Assert::assertFalse(FirStatusEnum::IN_TRANSIT->canReach(FirStatusEnum::CANCELLED));
         Assert::assertFalse(FirStatusEnum::ACCEPTED->canReach(FirStatusEnum::DRAFT));
         Assert::assertFalse(FirStatusEnum::ISSUED->canReach(FirStatusEnum::ISSUED));
+    });
+});
+
+describe('FIR cartaceo in uscita dalla bozza', function (): void {
+    test('non si emette senza numero e trasportatore', function (): void {
+        $draft = immutableFir();
+        $draft->update(['number' => null, 'is_digital' => false, 'transporter_operator_id' => null]);
+
+        expect(static fn () => app(ChangeFirStatusAction::class)->execute($draft, FirStatusEnum::ISSUED))
+            ->toThrow(\Modules\Waste\Exceptions\InvalidFirStatusTransitionException::class, __('waste::exceptions.invalid_fir_status_transition.fields.number'));
+        Assert::assertSame(FirStatusEnum::DRAFT, $draft->refresh()->status);
+    });
+
+    test('con numero e trasportatore si emette', function (): void {
+        $draft = immutableFir();
+        $transporter = \Modules\Waste\Database\Factories\OperatorFactory::new()->createOne();
+        $draft->update(['number' => 'XRAB 123456/26', 'is_digital' => false, 'transporter_operator_id' => $transporter->id]);
+
+        $fir = app(ChangeFirStatusAction::class)->execute($draft, FirStatusEnum::ISSUED);
+
+        Assert::assertSame(FirStatusEnum::ISSUED, $fir->status);
     });
 });
