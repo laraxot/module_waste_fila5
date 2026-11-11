@@ -59,6 +59,7 @@ return [
         'not_ready_for_transport' => 'A paper form cannot be issued without :fields: fill them in with «Edit» while it is a draft.',
         'fields' => [
             'number' => 'form number',
+            'and' => 'and',
             'transporter_operator_id' => 'carrier',
         ],
     ],

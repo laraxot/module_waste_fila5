@@ -59,6 +59,7 @@ return [
         'not_ready_for_transport' => 'Il formulario cartaceo non si può emettere senza :fields: completali con «Modifica» mentre è in bozza.',
         'fields' => [
             'number' => 'numero del formulario',
+            'and' => 'e',
             'transporter_operator_id' => 'trasportatore',
         ],
     ],
