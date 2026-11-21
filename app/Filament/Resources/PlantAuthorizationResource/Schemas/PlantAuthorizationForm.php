@@ -48,6 +48,8 @@ class PlantAuthorizationForm extends XotBaseResourceForm
             'notes' => Textarea::make('notes')->rows(3)->columnSpanFull(),
             'document' => SpatieMediaLibraryFileUpload::make('document')
                 ->collection(PlantAuthorization::DOCUMENT_COLLECTION)
+                ->disk(PlantAuthorization::documentDisk())
+                ->visibility('private')
                 ->multiple()
                 ->acceptedFileTypes($mimeTypes)
                 ->downloadable()

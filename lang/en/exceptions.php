@@ -56,6 +56,12 @@ return [
         'not_allowed' => 'The waste form cannot move from status ":from" to status ":to".',
         'acceptance_requires_data' => 'Status ":to" is set by recording the acceptance at destination, with the accepted quantity.',
         'invalid_initial_status' => 'A waste form cannot be created with status ":status".',
+        'not_ready_for_transport' => 'A paper form cannot be issued without :fields: fill them in with «Edit» while it is a draft.',
+        'fields' => [
+            'number' => 'form number',
+            'and' => 'and',
+            'transporter_operator_id' => 'carrier',
+        ],
     ],
     'invalid_fir' => [
         'operator_not_found' => 'Operator #:id does not exist.',

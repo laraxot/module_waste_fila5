@@ -118,8 +118,9 @@ class CreateFirAction
             }
         }
 
-        throw InvalidFirException::operatorRoleMismatch($operator->business_name, implode('/', array_map(
-            static fn (OperatorRoleEnum $role): string => $role->value,
+        // Il ruolo nella lingua dell'utente ("destinatario"), non il valore interno ("recipient").
+        throw InvalidFirException::operatorRoleMismatch($operator->business_name, implode(' / ', array_map(
+            static fn (OperatorRoleEnum $role): string => mb_strtolower($role->getLabel()),
             $roles,
         )));
     }

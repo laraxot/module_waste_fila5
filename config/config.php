@@ -27,10 +27,12 @@ return [
 
     'authorization_document' => [
         /*
-         * Disco medialibrary per gli atti autorizzativi (null = disco di default di medialibrary).
-         * Gli atti sono documenti riservati: in produzione usare un disco privato.
+         * Disco medialibrary per gli atti autorizzativi. Gli atti sono documenti riservati: il default è il
+         * disco privato `local` (storage/app/private), mai il disco `public` di medialibrary, i cui URL
+         * `/storage/{id}/{nome}` sono indovinabili (audit sicurezza M5). Il pannello apre i file con URL
+         * temporanei firmati. Un disco diverso (es. S3 privato) si indica con la variabile d'ambiente.
          */
-        'disk' => getenv('WASTE_AUTHORIZATION_DOCUMENT_DISK') ?: null,
+        'disk' => getenv('WASTE_AUTHORIZATION_DOCUMENT_DISK') ?: 'local',
         /*
          * Tipi MIME accettati: PDF e file firmati CAdES (.p7m), formato usuale degli atti della PA.
          */

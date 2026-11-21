@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use Carbon\CarbonImmutable;
 use Modules\Waste\Actions\FindAuthorizedWasteAction;
+use Modules\Waste\Actions\GetAuthorizedOperationsAction;
 use Modules\Waste\Actions\GetAuthorizedQuantityUsageAction;
 use Modules\Waste\Actions\PostRegisterEntryAction;
 use Modules\Waste\Actions\RectifyRegisterEntryAction;
@@ -193,4 +194,23 @@ describe('GetAuthorizedQuantityUsageAction', function (): void {
 
         app(GetAuthorizedQuantityUsageAction::class)->execute($authorized, -1.0);
     })->throws(InvalidQuantityException::class);
+});
+
+describe('GetAuthorizedOperationsAction', function (): void {
+    test('lists the operations of valid permits for the code, in enum order', function (): void {
+        [$plant, $ewc] = authorizedPlant();
+
+        Assert::assertSame(
+            [WasteOperationEnum::R3, WasteOperationEnum::R13],
+            app(GetAuthorizedOperationsAction::class)->execute($plant, $ewc),
+        );
+    });
+
+    test('ignores expired permits and other codes', function (): void {
+        [$plant, $ewc] = authorizedPlant(PlantAuthorizationFactory::new()->expired()->createOne());
+        $otherEwc = WasteFixtures::ewc();
+
+        Assert::assertSame([], app(GetAuthorizedOperationsAction::class)->execute($plant, $ewc));
+        Assert::assertSame([], app(GetAuthorizedOperationsAction::class)->execute($plant, $otherEwc));
+    });
 });

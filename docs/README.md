@@ -37,6 +37,10 @@ Le FK sono colonne indicizzate senza vincolo (moduli su connessioni diverse). Qu
 
 ### Integrità del registro
 
+Indice `register_entries (ewc_code_id, type, operation_at)` per l'utilizzo annuo dei codici autorizzati
+(`GetAuthorizedQuantityUsageAction`), aggiunto con `ensureIndexes()` (migrazione
+`2026_11_06_000009_add_query_supporting_indexes`, idempotente, audit database R14).
+
 - **Numerazione**: `AppendRegisterEntryAction` (unico scrittore) blocca la riga del registro con `lockForUpdate`
   in transazione, calcola `max(number)+1` per (registro, anno di `recorded_at`), salva. Vincolo unique
   `(register_id, year, number)` come ultima difesa, retry su collisione o deadlock (`waste.register.transaction_attempts`).
@@ -136,7 +140,7 @@ Etichette solo da `lang/`.
 ## Punti di estensione (`config/config.php` → `config('waste.*')`)
 
 - `register.transaction_attempts`: tentativi su deadlock / collisione di numerazione.
-- `authorization_document.disk`, `authorization_document.mime_types`: archiviazione degli atti.
+- `authorization_document.disk` (default `local`, disco privato; env `WASTE_AUTHORIZATION_DOCUMENT_DISK`), `authorization_document.mime_types`: archiviazione degli atti. Mai il disco `public` di medialibrary (URL indovinabili): il pannello apre gli atti con URL temporanei firmati (`visibility('private')`). `PlantAuthorization::documentDisk()` applica il default anche se la variabile è vuota.
 - `ewc_import.disk`, `ewc_import.directory`: file temporanei dell'import CSV.
 
 ## Seeder
@@ -171,3 +175,21 @@ autorizzata, titolo inattivo), utilizzo dell'autorizzazione annuo/istantaneo, FI
 del FIR dopo la bozza (`FirImmutabilityTest`).
 
 Storie: [`docs/stories/`](stories/).
+
+## Migrazioni
+
+Le migrazioni di `firs`, `registers`, `register_entries` hanno un `down()` che rifiuta il rollback: sono dati legali o di tracciabilità e non si
+cancellano con `migrate:rollback` (audit database R15). Unique e soft delete: decisioni nella story
+[`legal-tables-migrations`](stories/legal-tables-migrations.story.md) del modulo Waste.
+
+## Permessi
+
+Policy con `DeniesUndeclaredFilamentAbilities`; permessi creati da `WastePermissionSeeder` (idempotente, chiamato da
+`WasteDatabaseSeeder`). Azioni con abilità dedicata:
+
+| Bottone | Abilità | Permesso |
+|---|---|---|
+| FIR: cambia stato | `changeStatus` | `fir.change_status` |
+| FIR: registra accettazione | `recordAcceptance` | `fir.record_acceptance` |
+| Codici EER: importa CSV | `import` | `ewc_code.import` |
+| Registro: rettifica | `rectify` | `register_entry.rectify` |
